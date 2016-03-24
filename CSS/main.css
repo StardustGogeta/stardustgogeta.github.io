@@ -1,0 +1,14 @@
+body
+{
+	color: white;
+	background-color: black;
+	text-align: center;
+}
+
+#mid
+{
+	padding-top: 25%;
+	font-family: Georgia, sans-serif;
+	font-style: light;
+	font-size: 36pt;
+}
