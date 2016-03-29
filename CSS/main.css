@@ -1,3 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+::-webkit-scrollbar
+{
+    width: 12px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(100,100,100,0.2); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive
+{
+	background: rgba(100,100,100,0.1); 
+}
+
 body
 {
 	color: white;
@@ -5,19 +33,90 @@ body
 	text-align: center;
 	font-family: Georgia, sans-serif;
 	font-style: light;
+	word-wrap: break-word;
 }
 
-table
+h1
 {
-	text-align: center;
-	width: 100%;
-	font-size: 16pt;
+	font-size: 5em;
 }
 
 #mid
 {
-	padding-top: 25%;
-	font-family: Georgia, sans-serif;
+	padding-top: 5%;
 	font-style: light;
-	font-size: 36pt;
+	font-size: 3.5em;
+}
+
+#ac1
+{
+	font-family: Helvetica, sans-serif;
+	background-color: #FFA221;
+}
+
+#ac2
+{
+	font-family: Roboto, sans-serif;
+	background-color: #CD201F;
+}
+
+#ac3
+{
+	font-family: Verdana, sans-serif;
+	background-color: #CEE3F8;
+	text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+#ac4
+{
+	font-family: Arial, sans-serif;
+	color: orange;
+	background-color: white;
+}
+
+#ac5
+{
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	background-color: darkgreen;
+}
+
+#ac6
+{
+	font-family: Tahoma, sans-serif;
+	background-color: #1B2838;
+}
+
+#ac7
+{
+	font-family: Arial, sans-serif;
+	background: linear-gradient(#DDA64B, #E55E26);
+}
+
+#ac8
+{
+	color: black;
+	font-family: Helvetica, sans-serif;
+	background-color: white;
+}
+
+.select
+{
+	text-align: center;
+	width: 60%;
+	margin-left: 20%;
+	font-size: 1.5em;
+}
+
+.click
+{
+	font-size: 2em;
+	border: solid white;
+	border-width: 0.5px 2px 0.5px 2px;
+	padding: .125em;
+}
+
+.collapse
+{
+	font-size: 1.5em;
+	padding: .125em;
 }
