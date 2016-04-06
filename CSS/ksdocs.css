@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+::-webkit-scrollbar
+{
+    width: 12px;
+}
+
+
+
+::-webkit-scrollbar-thumb
+{
+    background: rgba(0,0,0,0.8);
+}
+
+::-webkit-scrollbar-thumb:window-inactive
+{
+	background: rgba(0,0,0,0.6); 
+}
+
+html
+{
+	background-color: #f0f0f0;
+}
+
+body
+{
+	background-color: white;
+	padding: 30px;
+	font-family: "Open Sans", sans-serif;
+	font-style: light;
+	word-wrap: break-word;
+	outline: 3px solid darkblue;
+}
+
+h1
+{
+	font-size: 5em;
+	-webkit-text-stroke: 2px black;
+	color: #ffff99;
+}
+
+h2
+{
+	color: darkblue;
+	font-size: 3em;
+}
+
+h3
+{
+	color: black;
+	background-color: lightgray;
+	font-size: 2em;
+	padding: .5em;
+	font-weight: lighter;
+	margin-bottom: 0px;
+}
+
+ol
+{
+	color: red;
+	font-size: 2em;
+	list-style-position: inside;
+	margin: 40px;
+	padding: 10px;
+	padding-left:40px;
+	line-height: 200%;
+	outline: 2px solid darkblue;
+}
+	
+a
+{
+	text-decoration: none;
+	color: red;
+}
+
+#info
+{
+	font-size: 1.5em;
+	padding-right: 30em;
+	line-height: 150%;
+}
+
+#info .exa
+{
+	padding: 0;
+}
+
+#return
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: gray;
+	padding: .5em;
+	border-left: .25em solid black;
+	border-bottom: .25em solid black;
+	color: white;
+}
+
+.exp
+{
+	background-color: #ffff99;
+	color: black;
+	padding: 1em;
+	font-size: 1em;
+}
+
+.exa
+{
+	background-color: #f2f2f2;
+	padding: .2em;
+}
