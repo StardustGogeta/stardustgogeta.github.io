@@ -32,7 +32,7 @@ body
 
 h1
 {
-	font-size: 5em;
+	font-size: 5vw;
 	-webkit-text-stroke: 2px black;
 	color: #ffff99;
 }
@@ -40,14 +40,14 @@ h1
 h2
 {
 	color: darkblue;
-	font-size: 3em;
+	font-size: 4vw;
 }
 
 h3
 {
 	color: black;
 	background-color: lightgray;
-	font-size: 2em;
+	font-size: 3vw;
 	padding: .5em;
 	font-weight: lighter;
 	margin-bottom: 0px;
@@ -56,11 +56,11 @@ h3
 ol
 {
 	color: red;
-	font-size: 2em;
+	font-size: 2.5vw;
 	list-style-position: inside;
-	margin: 40px;
-	padding: 10px;
-	padding-left:40px;
+	margin: 4vw;
+	padding: 1.5vw;
+	padding-left: 5vw;
 	line-height: 200%;
 	outline: 2px solid darkblue;
 }
@@ -73,9 +73,9 @@ a
 
 #info
 {
-	font-size: 1.5em;
-	padding-right: 30em;
+	font-size: 2vw;
 	line-height: 150%;
+	width: 70%;
 }
 
 #info .exa
@@ -93,6 +93,7 @@ a
 	border-left: .25em solid black;
 	border-bottom: .25em solid black;
 	color: white;
+	font-size: 2vw;
 }
 
 .exp
