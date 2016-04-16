@@ -25,7 +25,9 @@
 			</div>
 			<div data-toggle="collapse" data-target="#ac4" class="click">StackOverflow</div>
 			<div id="ac4" class="collapse">
-				StackOverflow
+				StackOverflow<br>
+				My account may be found <a href='http://stackoverflow.com/users/5732397/stardustgogeta'>here</a>.<br>
+				I currently have <span id='SOrep'></span> reputation.
 			</div>
 			<div data-toggle="collapse" data-target="#ac5" class="click">Chess</div>
 			<div id="ac5" class="collapse">
@@ -42,8 +44,16 @@
 			<div data-toggle="collapse" data-target="#ac8" class="click">GitHub</div>
 			<div id="ac8" class="collapse">
 				<b>GitHub</b><br>
-				<a href="HTML/KSdocs/index.html">Documentation for the KerbalSpace Language</a>
+				<a href="ksdocs/">Documentation for the KerbalSpace Language</a>
 			</div>
 		</div>
 	</body>
+	<script>
+		SOrep = document.getElementById('id');
+		var yqlCallback = function(data){
+			var source = data.query.results.channel;
+			alert(wind);
+		};
+	</script>
+	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select * from html where url='http://stackoverflow.com/users/5732397/stardustgogeta'&format=json&callback=yqlCallback"></script>
 </html>
