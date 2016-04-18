@@ -33,11 +33,13 @@
 			</div>
 			<div data-toggle="collapse" data-target="#ac5" class="click">Chess</div>
 			<div id="ac5" class="collapse">
-				Chess
+				My current Blitz rating is <span id='blitz'></span>.
 			</div>
 			<div data-toggle="collapse" data-target="#ac6" class="click">Steam</div>
 			<div id="ac6" class="collapse">
-				Steam
+				My Steam profile is <a href='http://steamcommunity.com/id/StardustGogeta'>here</a>.<br>
+				I play Kerbal Space Program, Counter-Strike: Global Offensive, and more.
+				Footage can be seen on my YouTube channel or requested from me personally.
 			</div>
 			<div data-toggle="collapse" data-target="#ac7" class="click">Origin</div>
 			<div id="ac7" class="collapse">
@@ -55,6 +57,11 @@
 			var rep = data.query.results.div;
 			document.getElementById('SOrep').innerHTML = rep;
 		};
+		var chess = function(data){
+			var rating = data.query.results.div;
+			document.getElementById('blitz').innerHTML = rating[0];
+		};
 	</script>
 	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'http%3A%2F%2Fstackoverflow.com%2Fusers%2F5732397%2Fstardustgogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22reputation%22%5D'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=yqlCall"></script>
+	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'https%3A%2F%2Fwww.chess.com%2Fmember%2FStardustGogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22right%22%5D'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=chess"></script>
 </html>
