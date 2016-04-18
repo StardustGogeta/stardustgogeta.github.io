@@ -17,7 +17,10 @@
 			</div>
 			<div data-toggle="collapse" data-target="#ac2" class="click">YouTube</div>
 			<div id="ac2" class="collapse">
-				YouTube
+				My channel features a collection of emulated games and other gaming materials. If interested, subscribe below.<br>
+				<a href='https://www.youtube.com/subscription_center?add_user=stardustgogeta'>
+					<img src='img/YTsubscribe.png'/>
+				</a>
 			</div>
 			<div data-toggle="collapse" data-target="#ac3" class="click">Reddit</div>
 			<div id="ac3" class="collapse">
@@ -25,7 +28,6 @@
 			</div>
 			<div data-toggle="collapse" data-target="#ac4" class="click">StackOverflow</div>
 			<div id="ac4" class="collapse">
-				StackOverflow<br>
 				My account may be found <a href='http://stackoverflow.com/users/5732397/stardustgogeta'>here</a>.<br>
 				I currently have <span id='SOrep'></span> reputation.
 			</div>
@@ -43,17 +45,16 @@
 			</div>
 			<div data-toggle="collapse" data-target="#ac8" class="click">GitHub</div>
 			<div id="ac8" class="collapse">
-				<b>GitHub</b><br>
 				<a href="ksdocs/">Documentation for the KerbalSpace Language</a>
 			</div>
 		</div>
 	</body>
 	<script>
-		SOrep = document.getElementById('id');
-		var yqlCallback = function(data){
-			var source = data.query.results.channel;
-			alert(wind);
+		// Thanks so much to Yahoo's YQL for making clientside webscraping possible!
+		var yqlCall = function(data){
+			var rep = data.query.results.div;
+			document.getElementById('SOrep').innerHTML = rep;
 		};
 	</script>
-	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select * from html where url='http://stackoverflow.com/users/5732397/stardustgogeta'&format=json&callback=yqlCallback"></script>
+	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'http%3A%2F%2Fstackoverflow.com%2Fusers%2F5732397%2Fstardustgogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22reputation%22%5D'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=yqlCall"></script>
 </html>
