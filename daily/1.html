@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stardust 1</title>
+		<link rel="stylesheet" type="text/css" href="../Bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../CSS/main.css">
+	</head>
+	<body onload="link()">
+		<h1>Program 1</h1>
+		<div id="whitebox">
+			<u>Infinite Geometric Summation</u><br>
+			When a geometric series has a common ratio with an absolute value of less than one, it is said to "converge".<br>
+			This point can be calculated using the formula a<sub>1</sub>/(1-r), where a<sub>1</sub>
+			is the first term and r is the common ratio.<br>
+			<table id='prog' style="display:inline-block; text-align:center;">
+				<tr style="font-size:.75em; line-height:.75em;"><td>&infin;</td></tr>
+				<tr style="font-size:1.5em; line-height:.75em;">
+					<td>&Sigma;</td>
+					<td><form onchange='calc()'><input placeholder='   a&#8321;' id='in' />&middot;<input placeholder='    r' id='in2' /><sup style='font-size:.5em;'>n-1</sup></td>
+					<td id='out'></td>
+				</tr>
+				<tr style="font-size:.75em; line-height:.75em;"><td>n=1</td></tr>
+			</table>
+			<div id='code'>
+				a = parseFloat(document.getElementById('in').value);<br>
+				r = parseFloat(document.getElementById('in2').value);<br>
+				if (a && Math.abs(r)<1)<br>
+				{<br>
+				&nbsp;&nbsp;document.getElementById('out').innerHTML = ' = '.concat((Math.round(a/(1-r)*100000)/100000).toString());<br>
+				}<br>
+			</div>
+		</div><br><br><br><br><br><br>
+		<h2><!--<a id='ll' style='margin-right:5%;'>&larr; Previous Program</a><a id='rl' style='margin-left:5%;'>Next Program &rarr;</a></h2>-->
+	</body>
+	<script>
+		function link()
+		{
+			href = window.location.href
+			try {document.getElementById('ll').href=(parseInt(href.split("/").pop())-1).toString().concat('.html');}
+			catch(e){}
+			try {document.getElementById('rl').href=(parseInt(href.split("/").pop())+1).toString().concat('.html');}
+			catch(e){}
+		}
+		function calc()
+		{
+			a = parseFloat(document.getElementById('in').value);
+			r = parseFloat(document.getElementById('in2').value);
+			if (a&&Math.abs(r)<1)
+			{
+				document.getElementById('out').innerHTML=' = '.concat((Math.round(a/(1-r)*100000)/100000).toString());
+			}
+		}
+	</script>
+</html>

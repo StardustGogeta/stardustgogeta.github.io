@@ -26,6 +26,11 @@
 	background: rgba(100,100,100,0.1); 
 }
 
+a
+{
+	color: lightblue;
+}
+
 body
 {
 	color: white;
@@ -34,11 +39,19 @@ body
 	font-family: Georgia, sans-serif;
 	font-style: light;
 	word-wrap: break-word;
+	margin-bottom: 5%;
 }
 
 h1
 {
 	font-size: 5em;
+}
+
+input
+{
+	font-size: 24pt;
+	width: 2.5em;
+	height: 1.5em;
 }
 
 #mid
@@ -100,6 +113,38 @@ h1
 	font-weight: bold;
 }
 
+#code
+{
+	font-size: 0.5em;
+	color: white;
+	background-color: midnightblue;
+	width: 60%;
+	margin-left: 20%;
+	padding: 2%;
+	text-align: left;
+	font-family: monospace;
+	margin-top: 5vh;
+}
+
+#prog
+{
+	font-size: 2em;
+	padding: 2%;
+	text-align: center;
+}
+
+#whitebox
+{
+	font-size: 2em;
+	color: black;
+	background-color: white;
+	width: 80vw;
+	margin-left: 10vw;
+	margin-top: 5vh;
+	padding: 2%;
+	height: 50vh;
+}
+
 .select
 {
 	text-align: center;
@@ -121,3 +166,4 @@ h1
 	font-size: 1.5em;
 	padding: .125em;
 }
+
