@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stardust 2</title>
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
+		<link rel="stylesheet" type="text/css" href="../Bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../CSS/main.css">
+	</head>
+	<body onload="link()">
+		<h1>Program 2</h1>
+		<div id="whitebox">
+			<u>Finite Geometric Summation</u><br>
+			A geometric series is one that has a common ratio which remains constant between terms.<br>
+			The sum of a finite geometric series is `(a_1(1-r^n))/(1-r)`, where `a_1`
+			is the first term, `n` is the position of the last term, and `r` is the common ratio.
+			If `r<1` and `n=oo`, then `r^oo=0` and `a_1(1-r^oo)=a_1(1-0)=a_1`, thereby creating the infinite sum equation
+			seen in the previous program.<br>
+			<form onchange='calc()'>
+				<table style='display:inline;'>
+					<tr>
+						<td><input id='in3' placeholder='n'style='position:relative;top:.75em;font-size:.75em'></td>
+					</tr>
+					<tr>
+						<td>`sum_(n=1)`</td>
+						<td>
+							<input id='in' placeholder='a&#8321;'/>
+							<span style='display:inline-block'>$$*\Big($$</span>
+							<input id='in2' placeholder='r'/>
+							`)^(n-1)`
+							<span id='out'></span>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<div id='code'>
+				var a = parseFloat(document.getElementById('in').value);<br>
+				var r = parseFloat(document.getElementById('in2').value);<br>
+				var n = parseFloat(document.getElementById('in3').value);<br>
+				if (a && a < Infinity && r != 1 && r && n)<br>
+				{<br>
+				&nbsp;&nbsp;return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));<br>
+				}<br>
+			</div>
+		</div><br><br>
+		<h2><a id='ll'>&larr; Previous Program</a>
+	</body>
+	<script>
+		function link()
+		{
+			href = window.location.href
+			try {document.getElementById('ll').href=(parseInt(href.split("/").pop())-1).toString().concat('.html');}
+			catch(e){}
+			try {document.getElementById('rl').href=(parseInt(href.split("/").pop())+1).toString().concat('.html');}
+			catch(e){}
+		}
+		function calc()
+		{
+			var a = parseFloat(document.getElementById('in').value);
+			var r = parseFloat(document.getElementById('in2').value);
+			var n = parseFloat(document.getElementById('in3').value);
+			if (a&&a<Infinity&&r!=1&&r!=0&&r&&n)
+			{
+				document.getElementById('out').innerHTML='` = '+(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5)).toString()+'`';
+				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+			}
+		}
+	</script>
+</html>
