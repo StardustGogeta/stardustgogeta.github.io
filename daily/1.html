@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Stardust 1</title>
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
 		<link rel="stylesheet" type="text/css" href="../Bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../CSS/main.css">
 	</head>
@@ -10,27 +11,26 @@
 		<div id="whitebox">
 			<u>Infinite Geometric Summation</u><br>
 			When a geometric series has a common ratio with an absolute value of less than one, it is said to "converge".<br>
-			This point can be calculated using the formula a<sub>1</sub>/(1-r), where a<sub>1</sub>
-			is the first term and r is the common ratio.<br>
-			<table id='prog' style="display:inline-block; text-align:center;">
-				<tr style="font-size:.75em; line-height:.75em;"><td>&infin;</td></tr>
-				<tr style="font-size:1.5em; line-height:.75em;">
-					<td>&Sigma;</td>
-					<td><form onchange='calc()'><input placeholder='   a&#8321;' id='in' />&middot;<input placeholder='    r' id='in2' /><sup style='font-size:.5em;'>n-1</sup></td>
-					<td id='out'></td>
-				</tr>
-				<tr style="font-size:.75em; line-height:.75em;"><td>n=1</td></tr>
-			</table>
+			This point can be calculated using the formula `a_1/(1-r)`, where `a_1`
+			is the first term and `r` is the common ratio.<br>
+			<form id='prog' onchange='calc()'>
+				`sum_(n=1)^oo`
+				<input id='in' placeholder='a&#8321;'/>
+				<span style='display:inline-block'>$$*\Big($$</span>
+				<input id='in2' placeholder='r'/>
+				`)^(n-1)`
+				<span id='out'></span>
+			</form>
 			<div id='code'>
-				a = parseFloat(document.getElementById('in').value);<br>
-				r = parseFloat(document.getElementById('in2').value);<br>
+				var a = parseFloat(document.getElementById('in').value);<br>
+				var r = parseFloat(document.getElementById('in2').value);<br>
 				if (a && Math.abs(r)<1)<br>
 				{<br>
-				&nbsp;&nbsp;document.getElementById('out').innerHTML = ' = '.concat((Math.round(a/(1-r)*100000)/100000).toString());<br>
+				&nbsp;&nbsp;return(+(a/(1-r)).toFixed(5));<br>
 				}<br>
 			</div>
-		</div><br><br><br><br><br><br>
-		<h2><!--<a id='ll' style='margin-right:5%;'>&larr; Previous Program</a><a id='rl' style='margin-left:5%;'>Next Program &rarr;</a></h2>-->
+		</div><br><br>
+		<h2><a id='rl'>Next Program &rarr;</a></h2>
 	</body>
 	<script>
 		function link()
@@ -43,11 +43,12 @@
 		}
 		function calc()
 		{
-			a = parseFloat(document.getElementById('in').value);
-			r = parseFloat(document.getElementById('in2').value);
+			var a = parseFloat(document.getElementById('in').value);
+			var r = parseFloat(document.getElementById('in2').value);
 			if (a&&Math.abs(r)<1)
 			{
-				document.getElementById('out').innerHTML=' = '.concat((Math.round(a/(1-r)*100000)/100000).toString());
+				document.getElementById('out').innerHTML='` = '+(+(a/(1-r)).toFixed(5)).toString()+'`';
+				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
 			}
 		}
 	</script>

@@ -49,9 +49,10 @@ h1
 
 input
 {
-	font-size: 24pt;
+	font-size: 1em;
 	width: 2.5em;
 	height: 1.5em;
+	text-align: center;
 }
 
 #mid
@@ -126,9 +127,19 @@ input
 	margin-top: 5vh;
 }
 
+#ll
+{
+	margin-right:5%;
+}
+
+#lr
+{
+	margin-left:5%;
+}
+
 #prog
 {
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: 2%;
 	text-align: center;
 }
@@ -142,7 +153,6 @@ input
 	margin-left: 10vw;
 	margin-top: 5vh;
 	padding: 2%;
-	height: 50vh;
 }
 
 .select
