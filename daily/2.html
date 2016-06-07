@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Stardust 2</title>
 		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
-		<link rel="stylesheet" type="text/css" href="../Bootstrap/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../CSS/main.css">
+		<script src='../JS/common.js'></script>
+		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="../CSS/main.css">
 	</head>
-	<body onload="link()">
-		<h1>Program 2</h1>
+	<body onload="daily(2)">
 		<div id="whitebox">
 			<u>Finite Geometric Summation</u><br>
 			A geometric series is one that has a common ratio which remains constant between terms.<br>
@@ -41,18 +40,9 @@
 				&nbsp;&nbsp;return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));<br>
 				}<br>
 			</div>
-		</div><br><br>
-		<h2><a id='ll'>&larr; Previous Program</a>
+		</div>
 	</body>
 	<script>
-		function link()
-		{
-			href = window.location.href
-			try {document.getElementById('ll').href=(parseInt(href.split("/").pop())-1).toString().concat('.html');}
-			catch(e){}
-			try {document.getElementById('rl').href=(parseInt(href.split("/").pop())+1).toString().concat('.html');}
-			catch(e){}
-		}
 		function calc()
 		{
 			var a = parseFloat(document.getElementById('in').value);

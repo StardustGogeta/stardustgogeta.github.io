@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
+		<script src='../JS/common.js'></script>
+		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="../CSS/main.css">
+	</head>
+	<body onload="daily(3)">
+		<div id="whitebox">
+			<u>Quadratic Formula</u><br>
+			A quadratic equation is a polynomial of degree 2.<br>
+			The zeros of such a polynomial are given by the equation `(-b+-sqrt(b^2-4ac))/(2a)`.<br>
+			<form onchange='calc()'>
+				<input id='in' placeholder='a'/>`x^2+`
+				<input id='in2' placeholder='b'/>`x+`
+				<input id='in3' placeholder='c'/><br>
+				<span id='out'></span>
+			</form>
+			<div id='code'>
+				var a = parseFloat(document.getElementById('in').value);<br>
+				var b = parseFloat(document.getElementById('in2').value);<br>
+				var c = parseFloat(document.getElementById('in3').value);<br>
+				if(!(isNaN(a)||isNaN(b)||isNaN(c)))<br>
+				{<br>
+				&nbsp;&nbsp;var x1, x2, i, r, d = b*b-4*a*c;<br>
+				&nbsp;&nbsp;if(d>=0)<br>
+				&nbsp;&nbsp;{<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;x1=(-b+Math.sqrt(d))/2/a;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;x2=(-b-Math.sqrt(d))/2/a;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;return(+x1.toFixed(5),+x2.toFixed(5));<br>
+				&nbsp;&nbsp;}<br>
+				&nbsp;&nbsp;else<br>
+				&nbsp;&nbsp;{<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;r=-b/2/a;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;i=Math.sqrt(-d)/2/a;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;return(+r.toFixed(5),+i.toFixed(5));<br>
+				&nbsp;&nbsp;}<br>
+				}<br>
+			</div>
+		</div>
+	</body>
+	<script>
+		function calc()
+		{
+			var a = parseFloat(document.getElementById('in').value);
+			var b = parseFloat(document.getElementById('in2').value);
+			var c = parseFloat(document.getElementById('in3').value);
+			if(!(isNaN(a)||isNaN(b)||isNaN(c)))
+			{
+				var x1, x2, i, r, d = b*b-4*a*c;
+				if(d>=0)
+				{
+					x1=(-b+Math.sqrt(d))/2/a;
+					x2=(-b-Math.sqrt(d))/2/a;
+					document.getElementById('out').innerHTML='`x = '+(+x1.toFixed(5)).toString()+', '+(+x2.toFixed(5)).toString()+'`';
+				}
+				else
+				{
+					r=-b/2/a;
+					i=Math.sqrt(-d)/2/a;
+					document.getElementById('out').innerHTML='`x = '+(+r.toFixed(5)).toString()+'+-'+(+i.toFixed(5)).toString()+'i`';
+				}
+				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+			}
+		}
+	</script>
+	<style>#in,#in2,#in3{width:2em;}</style>
+</html>

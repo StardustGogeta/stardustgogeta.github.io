@@ -137,6 +137,13 @@ input
 	margin-left:5%;
 }
 
+#ll, #lr
+{
+	border: 1px solid lightblue;
+	padding: .5em;
+	text-decoration: none;
+}
+
 #prog
 {
 	font-size: 1.5em;
