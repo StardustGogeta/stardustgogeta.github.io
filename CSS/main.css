@@ -121,10 +121,11 @@ input
 	background-color: midnightblue;
 	width: 60%;
 	margin-left: 20%;
-	padding: 2%;
+	padding: 1%;
 	text-align: left;
 	font-family: monospace;
 	margin-top: 5vh;
+	tab-size: 4;
 }
 
 #ll

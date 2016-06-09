@@ -20,14 +20,10 @@
 				`)^(n-1)`
 				<span id='out'></span>
 			</form>
-			<div id='code'>
-				var a = parseFloat(document.getElementById('in').value);<br>
-				var r = parseFloat(document.getElementById('in2').value);<br>
-				if (a && Math.abs(r)<1)<br>
-				{<br>
-				&nbsp;&nbsp;return(+(a/(1-r)).toFixed(5));<br>
-				}<br>
-			</div>
+			<pre id='code'>
+var a = parseFloat(document.getElementById('in').value);
+var r = parseFloat(document.getElementById('in2').value);
+if (a&&Math.abs(r)<1) return +(a/(1-r)).toFixed(5);</pre>
 		</div>
 	</body>
 	<script>
