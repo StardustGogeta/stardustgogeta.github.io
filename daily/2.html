@@ -31,15 +31,11 @@
 					</tr>
 				</table>
 			</form>
-			<div id='code'>
-				var a = parseFloat(document.getElementById('in').value);<br>
-				var r = parseFloat(document.getElementById('in2').value);<br>
-				var n = parseFloat(document.getElementById('in3').value);<br>
-				if (a && a < Infinity && r != 1 && r && n)<br>
-				{<br>
-				&nbsp;&nbsp;return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));<br>
-				}<br>
-			</div>
+			<pre id='code'>
+var a = parseFloat(document.getElementById('in').value);
+var r = parseFloat(document.getElementById('in2').value);
+var n = parseFloat(document.getElementById('in3').value);
+if (a && a < Infinity && r != 1 && r && n) return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));</pre>
 		</div>
 	</body>
 	<script>

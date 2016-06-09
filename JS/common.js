@@ -19,7 +19,7 @@ function daily(x)
 		l.innerHTML = '&larr; Last Program';
 		h2.appendChild(l)
 	}
-	if(x<3)
+	if(x<4)
 	{
 		
 		var r = d.createElement('a');
