@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
 		<script src='../JS/common.js'></script>
-		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<script src='../JS/katex.min.js'></script>
+		<script src="../JS/auto-render.min.js"></script>
 		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 	</head>
 	<body onload="daily(4)">
 		<div id="whitebox">
 			<u>Radical Simplification</u><br>
-			A radical, which looks like `sqrt()`, symbolizes the opposite of exponentiation.<br>
-			`root(n)(x)=y` means that when `y` is multiplied by itself `n` times, the product is `n`.<br>
-			Additionally, an expression like `sqrt(4x)` can be simplified to `2sqrt(x)` because<br>
+			A radical `(\sqrt x)` symbolizes the opposite of exponentiation.<br>
+			If `\sqrt[n]x=y`, then `y` can be multiplied by itself `n` times to reach `x`.<br>
+			Additionally, an expression like `\sqrt{4x}` can be simplified to `2\sqrt x` because<br>
 			the square root can be distributed to the factors of 4 and x, individually.<br><br>
 			<form onchange='calc()'>
-				<input id='in' placeholder='x'/>
-				<input id='in2' placeholder='n' style='font-size:.8em;width:1em;height:1em;position:relative;top:-.75em;left:.75em;'/>`sqrt()`
-				<input id='in3' placeholder='y'/>
+				<input id='in' placeholder='x'>
+				<input id='in2' placeholder='n' style='font-size:.8em;width:1.5em;height:1em;position:relative;top:-1em;left:.75em;'>`\Large\sqrt x`
+				<input id='in3' placeholder='y' style="position:relative;right:1.25em;">
 				<span id='out'></span>
 			</form>
 			<pre id='code'>
@@ -55,8 +56,9 @@ function calc()
 	}
 }</pre>
 		</div>
-	</body>
 	<script>
+		set = {delimiters:[{left:"`",right:"`",display:false}]};
+		renderMathInElement(document.getElementById('whitebox'),set);
 		function f(n)
 		{
 			for(var d=2;d<=Math.sqrt(n);d++) if (!(n%d)) return d;
@@ -87,10 +89,11 @@ function calc()
 						y/=b;
 					}
 					a=e(o,i,fV,fC,n);
-					document.getElementById('out').innerHTML='` = '+(a[0]*x).toString()+'root('+n.toString()+')('+a[1].toString()+')`';
+					document.getElementById('out').innerHTML='`= '+(a[0]*x).toString()+'\\sqrt['+n.toString()+']{'+a[1].toString()+'}`';
 				}
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+				renderMathInElement(document.getElementById('out'),set);
 			}
 		}
 	</script>
+	</body>
 </html>

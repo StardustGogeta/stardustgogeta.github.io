@@ -1,100 +1,58 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>StardustGogeta - Home Page</title>
-		<link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap.min.css">
+		<title>Stardust - Home</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="Bootstrap/bootstrap.min.js"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 	</head>
-	<body>
+	<body style="font-family:Open Sans">
 		<h1>StardustGogeta</h1>
 		<h2><a href="daily/4.html">Click here for the daily program.</a></h2>
-		<div id="mid">Hello! This is my Github.io page!</div><br>
+		<div style="font-size:3.5em;">Welcome to my Github.io page!</div>
 		<div class="select">
-			<div data-toggle="collapse" data-target="#ac1" class="click">Scratch</div>
-			<div id="ac1" class="collapse">
-				Scratch
+			<div class="click" onclick="fold('scratch')">Scratch</div>
+			<div class="acc" id="scratch">
+				My Scratch profile can be found <a href="https://scratch.mit.edu/users/StardustGogeta/">here</a>.<br>
+				Math tools and other small projects can be found there.
 			</div>
-			<div data-toggle="collapse" data-target="#ac2" class="click">YouTube</div>
-			<div id="ac2" class="collapse">
-				My channel features a collection of emulated games and other gaming materials. If interested, subscribe below.<br>
-				<a href='https://www.youtube.com/subscription_center?add_user=stardustgogeta'>
-					<img src='IMG/YTsubscribe.png'/>
-				</a>
+			<div class="click" onclick="fold('youtube')">YouTube</div>
+			<div id="youtube" class="acc">
+				My channel features a collection of emulated games and other gaming materials. If interested, subscribe
+				<a href='https://www.youtube.com/subscription_center?add_user=stardustgogeta'>here</a>.
 			</div>
-			<div data-toggle="collapse" data-target="#ac3" class="click">Reddit</div>
-			<div id="ac3" class="collapse">
+			<div class="click" onclick="fold('reddit')">Reddit</div>
+			<div id="reddit" class="acc">
 				My Reddit account is <a href='http://reddit.com/u/StardustGogeta'>here</a>.<br>
-				My link karma is <span id='karma1'></span> and my comment karma is <span id='karma2'></span>.
+				My link karma is <span id='karma1'>600</span> and my comment karma is <span id='karma2'>300</span>.
 			</div>
-			<div data-toggle="collapse" data-target="#ac4" class="click">StackOverflow</div>
-			<div id="ac4" class="collapse">
+			<div class="click" onclick="fold('so')">StackOverflow</div>
+			<div id="so" class="acc">
 				My account may be found <a href='http://stackoverflow.com/users/5732397/stardustgogeta'>here</a>.<br>
 				I currently have <span id='SOrep'></span> reputation.
 			</div>
-			<div data-toggle="collapse" data-target="#ac5" class="click">Chess</div>
-			<div id="ac5" class="collapse">
+			<div class="click" onclick="fold('chess')">Chess</div>
+			<div id="chess" class="acc">
 				My Chess.com account is located <a href='https://www.chess.com/member/StardustGogeta'>here</a>.<br>
 				My current Blitz rating is <span id='blitz'></span>.<br>
 				My current Bullet rating is <span id='bullet'></span>.<br>
 				My current Standard rating is <span id='standard'></span>.<br>
 				My current Tactics rating is <span id='tactics'></span>.<br>
 			</div>
-			<div data-toggle="collapse" data-target="#ac6" class="click">Steam</div>
-			<div id="ac6" class="collapse">
+			<div class="click" onclick="fold('steam')">Steam</div>
+			<div id="steam" class="acc">
 				My Steam profile is <a href='http://steamcommunity.com/id/StardustGogeta'>here</a>.<br>
 				I play Kerbal Space Program, Counter-Strike: Global Offensive, and more.
-				Footage can be seen on my YouTube channel or requested from me personally.
 			</div>
-			<div data-toggle="collapse" data-target="#ac7" class="click">Origin</div>
-			<div id="ac7" class="collapse">
-				Origin
+			<div class="click" onclick="fold('origin')">Origin</div>
+			<div id="origin" class="acc">
+				My Origin ID is StardustGogeta, though I typically use Steam instead.
 			</div>
-			<div data-toggle="collapse" data-target="#ac8" class="click">GitHub</div>
-			<div id="ac8" class="collapse">
-				<a href="ksdocs/">Documentation for the KerbalSpace Language</a>
+			<div class="click" onclick="fold('github')">GitHub</div>
+			<div id="github" class="acc">
+				<!--<a href="ksdocs/">Documentation for the KerbalSpace Language</a>-->
+				My GitHub profile can be found <a href="https://github.com/StardustGogeta">here</a>.
 			</div>
 		</div>
 	</body>
-	<script>
-		// Thanks so much to Yahoo's YQL for making clientside webscraping possible!
-		var rep = function(data){
-			var rep = data.query.results.div;
-			document.getElementById('SOrep').innerHTML = rep;
-		};
-		var chess = function(data){
-			var rating = data.query.results.div;
-			document.getElementById('blitz').innerHTML = rating[0];
-			document.getElementById('bullet').innerHTML = rating[1];
-			document.getElementById('standard').innerHTML = rating[2];
-			document.getElementById('tactics').innerHTML = rating[5];
-		};
-		var karma = function(data){
-			try
-			{
-				var pts = data.query.results.span;
-				document.getElementById('karma1').innerHTML = pts[0];
-				document.getElementById('karma2').innerHTML = pts[1];
-				localStorage.setItem('karma1',pts[0]);
-				localStorage.setItem('karma2',pts[1]);
-			}
-			catch(err)
-			{
-				if(localStorage.getItem('karma1'))
-				{
-					document.getElementById('karma1').innerHTML = 'about '+localStorage.getItem('karma1');
-					document.getElementById('karma2').innerHTML = 'about '+localStorage.getItem('karma2');
-				}
-				else
-				{
-					document.getElementById('karma1').innerHTML = 'above 630';
-					document.getElementById('karma2').innerHTML = 'above 300';
-				}
-			}
-		};
-	</script>
-	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'http%3A%2F%2Fstackoverflow.com%2Fusers%2F5732397%2Fstardustgogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22reputation%22%5D'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=rep"></script>
-	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'https%3A%2F%2Fwww.chess.com%2Fmember%2FStardustGogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22right%22%5D'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=chess"></script>
-	<script type='application/javascript' src="https://query.yahooapis.com/v1/public/yql?q=select%20content%20from%20html%20where%20url%3D'http%3A%2F%2Freddit.com%2Fu%2FStardustGogeta'%20and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22titlebox%22%5D%2Fspan'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=karma"></script>
+	<script onload="fetchData()" src="JS/common.js"></script>
 </html>

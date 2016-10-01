@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
 		<script src='../JS/common.js'></script>
-		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<script src='../JS/katex.min.js'></script>
+		<script src="../JS/auto-render.min.js"></script>
 		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 	</head>
 	<body onload="daily(1)">
 		<div id="whitebox">
 			<u>Infinite Geometric Summation</u><br>
 			When a geometric series has a common ratio with an absolute value of less than one, it is said to "converge".<br>
-			This point can be calculated using the formula `a_1/(1-r)`, where `a_1`
+			This point can be calculated using the formula `a_1\over(1-r)`, where `a_1`
 			is the first term and `r` is the common ratio.<br>
 			<form id='prog' onchange='calc()'>
-				`sum_(n=1)^oo`
-				<input id='in' placeholder='a&#8321;'/>
-				<span style='display:inline-block'>$$*\Big($$</span>
-				<input id='in2' placeholder='r'/>
-				`)^(n-1)`
+				`\sum_{n=1}^\infty`
+				<input id='in' placeholder='a&#8321;'>
+				`*\Large(`
+				<input id='in2' placeholder='r'>
+				`{\Large)}^{n-1}`
 				<span id='out'></span>
 			</form>
 			<pre id='code'>
@@ -25,17 +26,18 @@ var a = parseFloat(document.getElementById('in').value);
 var r = parseFloat(document.getElementById('in2').value);
 if (a&&Math.abs(r)<1) return +(a/(1-r)).toFixed(5);</pre>
 		</div>
-	</body>
 	<script>
+		set = {delimiters:[{left:"`",right:"`",display:false}]};
+		renderMathInElement(document.getElementById('whitebox'),set);
 		function calc()
 		{
 			var a = parseFloat(document.getElementById('in').value);
 			var r = parseFloat(document.getElementById('in2').value);
-			if (a&&Math.abs(r)<1)
-			{
+			if (a&&Math.abs(r)<1) {
 				document.getElementById('out').innerHTML='` = '+(+(a/(1-r)).toFixed(5)).toString()+'`';
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+				renderMathInElement(document.getElementById('out'),set);
 			}
 		}
 	</script>
+	</body>
 </html>

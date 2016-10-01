@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
 		<script src='../JS/common.js'></script>
-		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<script src='../JS/katex.min.js'></script>
+		<script src="../JS/auto-render.min.js"></script>
 		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 	</head>
 	<body onload="daily(2)">
 		<div id="whitebox">
 			<u>Finite Geometric Summation</u><br>
 			A geometric series is one that has a common ratio which remains constant between terms.<br>
-			The sum of a finite geometric series is `(a_1(1-r^n))/(1-r)`, where `a_1`
+			The sum of a finite geometric series is `a_1(1-r^n)\over(1-r)`, where `a_1`
 			is the first term, `n` is the position of the last term, and `r` is the common ratio.
-			If `r<1` and `n=oo`, then `r^oo=0` and `a_1(1-r^oo)=a_1(1-0)=a_1`, thereby creating the infinite sum equation
-			seen in the previous program.<br>
+			If `r<1` and `n=\infty`, then `r^\infty=0` and `a_1(1-r^\infty)=a_1(1-0)=a_1`, thereby creating the infinite sum equation
+			seen in the previous program.<br><br>
 			<form onchange='calc()'>
-				<table style='display:inline;'>
-					<tr>
-						<td><input id='in3' placeholder='n'style='position:relative;top:.75em;font-size:.75em'></td>
-					</tr>
-					<tr>
-						<td>`sum_(n=1)`</td>
-						<td>
-							<input id='in' placeholder='a&#8321;'/>
-							<span style='display:inline-block'>$$*\Big($$</span>
-							<input id='in2' placeholder='r'/>
-							`)^(n-1)`
-							<span id='out'></span>
-						</td>
-					</tr>
-				</table>
+				`\sum_{n=1}`
+				<input id='in3' placeholder='n' style='position:relative;right:2.5em;bottom:1em;width:2em;font-size:.75em;margin-right:-2.5em;'>
+				<input id='in' placeholder='a&#8321;'>
+				`*\Large(`
+				<input id='in2' placeholder='r'>
+				`{\Large)}^{n-1}`
+				<span id='out'></span>
 			</form>
 			<pre id='code'>
 var a = parseFloat(document.getElementById('in').value);
@@ -37,8 +30,9 @@ var r = parseFloat(document.getElementById('in2').value);
 var n = parseFloat(document.getElementById('in3').value);
 if (a && a < Infinity && r != 1 && r && n) return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));</pre>
 		</div>
-	</body>
 	<script>
+		set = {delimiters:[{left:"`",right:"`",display:false}]};
+		renderMathInElement(document.getElementById('whitebox'),set);
 		function calc()
 		{
 			var a = parseFloat(document.getElementById('in').value);
@@ -47,8 +41,9 @@ if (a && a < Infinity && r != 1 && r && n) return(+(a*(1-Math.pow(r,n))/(1-r)).t
 			if (a&&a<Infinity&&r!=1&&r!=0&&r&&n)
 			{
 				document.getElementById('out').innerHTML='` = '+(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5)).toString()+'`';
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+				renderMathInElement(document.getElementById('out'),set);
 			}
 		}
 	</script>
+	</body>
 </html>

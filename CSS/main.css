@@ -6,116 +6,93 @@
     width: 12px;
 }
 
-::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb
-{
-    -webkit-border-radius: 10px;
+::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: rgba(100,100,100,0.2); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
-::-webkit-scrollbar-thumb:window-inactive
-{
-	background: rgba(100,100,100,0.1); 
-}
-
-a
-{
+a {
 	color: lightblue;
 }
 
-body
-{
+body {
 	color: white;
 	background-color: black;
 	text-align: center;
 	font-family: Georgia, sans-serif;
-	font-style: light;
+	font-weight: 100;
 	word-wrap: break-word;
-	margin-bottom: 5%;
 }
 
-h1
-{
+h1 {
 	font-size: 5em;
+	font-family: Open Sans;
 }
 
-input
-{
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+input {
 	font-size: 1em;
 	width: 2.5em;
 	height: 1.5em;
 	text-align: center;
 }
 
-#mid
-{
-	padding-top: 5%;
-	font-style: light;
-	font-size: 3.5em;
-}
-
-#ac1
-{
+#scratch {
 	font-family: Helvetica, sans-serif;
 	background-color: #FFA221;
 }
 
-#ac2
-{
+#youtube {
 	font-family: Roboto, sans-serif;
 	background-color: #CD201F;
 }
 
-#ac3
-{
+#reddit {
 	font-family: Verdana, sans-serif;
 	background-color: #CEE3F8;
 	text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
 
-#ac4
-{
+#so {
 	font-family: Arial, sans-serif;
 	color: orange;
 	background-color: white;
 }
 
-#ac5
-{
+#chess {
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	background-color: darkgreen;
 }
 
-#ac6
-{
+#steam {
 	font-family: Tahoma, sans-serif;
 	background-color: #1B2838;
 }
 
-#ac7
-{
+#origin {
 	font-family: Arial, sans-serif;
 	background: linear-gradient(#DDA64B, #E55E26);
 }
 
-#ac8
-{
+#github {
 	color: black;
 	font-family: Helvetica, sans-serif;
 	background-color: white;
 	font-weight: bold;
 }
 
-#code
-{
+#github a {
+	color: gray;
+}
+
+#code {
 	font-size: 0.5em;
 	color: white;
 	background-color: midnightblue;
@@ -128,60 +105,55 @@ input
 	tab-size: 4;
 }
 
-#ll
-{
+#ll {
 	margin-right:5%;
 }
 
-#lr
-{
+#lr {
 	margin-left:5%;
 }
 
-#ll, #lr
-{
+#ll, #lr {
 	border: 1px solid lightblue;
 	padding: .5em;
 	text-decoration: none;
+	font-family: Open Sans;
 }
 
-#prog
-{
+#prog {
 	font-size: 1.5em;
 	padding: 2%;
 	text-align: center;
 }
 
-#whitebox
-{
+#whitebox {
 	font-size: 2em;
 	color: black;
 	background-color: white;
 	width: 80vw;
-	margin-left: 10vw;
-	margin-top: 5vh;
+	margin: 5vh auto;
 	padding: 2%;
 }
 
-.select
-{
-	text-align: center;
-	width: 60%;
-	margin-left: 20%;
+.select {
+	margin: 5% 10% 10%;
 	font-size: 1.5em;
 }
 
-.click
-{
+.acc  {
+	transition: all .25s ease-in-out;
+	height: 0;
+	font-size: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.click {
 	font-size: 2em;
 	border: solid white;
 	border-width: 0.5px 2px 0.5px 2px;
+	box-sizing: border-box;
+	width: 100%;
 	padding: .125em;
+	user-select: none;
 }
-
-.collapse
-{
-	font-size: 1.5em;
-	padding: .125em;
-}
-
