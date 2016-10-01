@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML-full'></script>
 		<script src='../JS/common.js'></script>
-		<link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+		<script src='../JS/katex.min.js'></script>
+		<script src="../JS/auto-render.min.js"></script>
 		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
+		<style>input{width:2em;}</style>
 	</head>
 	<body onload="daily(3)">
 		<div id="whitebox">
 			<u>Quadratic Formula</u><br>
 			A quadratic equation is a polynomial of degree 2.<br>
-			The zeros of such a polynomial are given by the equation `(-b+-sqrt(b^2-4ac))/(2a)`.<br>
+			The zeros of such a polynomial are given by the equation `-b\pm\sqrt{b^2-4ac}\over 2a`.<br><br>
 			<form onchange='calc()'>
-				<input id='in' placeholder='a'/>`x^2+`
-				<input id='in2' placeholder='b'/>`x+`
-				<input id='in3' placeholder='c'/><br>
+				<input id='in' placeholder='a'>`x^2+`
+				<input id='in2' placeholder='b'>`x+`
+				<input id='in3' placeholder='c'><br>
 				<span id='out'></span>
 			</form>
 			<pre id='code'>
@@ -38,8 +40,9 @@ if(!(isNaN(a)||isNaN(b)||isNaN(c)))
 	}
 }</pre>
 		</div>
-	</body>
 	<script>
+		set = {delimiters:[{left:"`",right:"`",display:false}]};
+		renderMathInElement(document.getElementById('whitebox'),set);
 		function calc()
 		{
 			var a = parseFloat(document.getElementById('in').value);
@@ -58,11 +61,11 @@ if(!(isNaN(a)||isNaN(b)||isNaN(c)))
 				{
 					r=-b/2/a;
 					i=Math.sqrt(-d)/2/a;
-					document.getElementById('out').innerHTML='`x = '+(+r.toFixed(5)).toString()+'+-'+(+i.toFixed(5)).toString()+'i`';
+					document.getElementById('out').innerHTML='`x = '+(+r.toFixed(5)).toString()+' \\pm '+(+i.toFixed(5)).toString()+'i`';
 				}
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('out').innerHTML]);
+				renderMathInElement(document.getElementById('out'),set);
 			}
 		}
 	</script>
-	<style>#in,#in2,#in3{width:2em;}</style>
+	</body>
 </html>
