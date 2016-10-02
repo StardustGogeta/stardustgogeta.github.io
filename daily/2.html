@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
-		<link rel="stylesheet" href="../CSS/main.css">
-		<link rel="stylesheet" href="../CSS/katex.min.css">
 	</head>
 	<body onload="daily(2)">
 		<div id="whitebox">
@@ -33,13 +33,11 @@ if (a && a < Infinity && r != 1 && r && n) return(+(a*(1-Math.pow(r,n))/(1-r)).t
 	<script>
 		set = {delimiters:[{left:"`",right:"`",display:false}]};
 		renderMathInElement(document.getElementById('whitebox'),set);
-		function calc()
-		{
+		function calc() {
 			var a = parseFloat(document.getElementById('in').value);
 			var r = parseFloat(document.getElementById('in2').value);
 			var n = parseFloat(document.getElementById('in3').value);
-			if (a&&a<Infinity&&r!=1&&r!=0&&r&&n)
-			{
+			if (a&&a<Infinity&&r!=1&&r!=0&&r&&n) {
 				document.getElementById('out').innerHTML='` = '+(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5)).toString()+'`';
 				renderMathInElement(document.getElementById('out'),set);
 			}

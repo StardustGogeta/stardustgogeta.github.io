@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
-		<link rel="stylesheet" href="../CSS/main.css">
-		<link rel="stylesheet" href="../CSS/katex.min.css">
 		<style>input{width:2em;}</style>
 	</head>
 	<body onload="daily(3)">
@@ -23,17 +23,14 @@
 var a = parseFloat(document.getElementById('in').value);
 var b = parseFloat(document.getElementById('in2').value);
 var c = parseFloat(document.getElementById('in3').value);
-if(!(isNaN(a)||isNaN(b)||isNaN(c)))
-{
+if(!(isNaN(a)||isNaN(b)||isNaN(c))) {
 	var x1, x2, i, r, d = b*b-4*a*c;
-	if(d>=0)
-	{
+	if(d>=0) {
 		x1=(-b+Math.sqrt(d))/2/a;
 		x2=(-b-Math.sqrt(d))/2/a;
 		return [+x1.toFixed(5),+x2.toFixed(5)];
 	}
-	else
-	{
+	else {
 		r=-b/2/a;
 		i=Math.sqrt(-d)/2/a;
 		return [+r.toFixed(5),+i.toFixed(5)];
@@ -43,22 +40,18 @@ if(!(isNaN(a)||isNaN(b)||isNaN(c)))
 	<script>
 		set = {delimiters:[{left:"`",right:"`",display:false}]};
 		renderMathInElement(document.getElementById('whitebox'),set);
-		function calc()
-		{
+		function calc() {
 			var a = parseFloat(document.getElementById('in').value);
 			var b = parseFloat(document.getElementById('in2').value);
 			var c = parseFloat(document.getElementById('in3').value);
-			if(!(isNaN(a)||isNaN(b)||isNaN(c)))
-			{
+			if(!(isNaN(a)||isNaN(b)||isNaN(c))) {
 				var x1, x2, i, r, d = b*b-4*a*c;
-				if(d>=0)
-				{
+				if(d>=0) {
 					x1=(-b+Math.sqrt(d))/2/a;
 					x2=(-b-Math.sqrt(d))/2/a;
 					document.getElementById('out').innerHTML='`x = '+(+x1.toFixed(5)).toString()+', '+(+x2.toFixed(5)).toString()+'`';
 				}
-				else
-				{
+				else {
 					r=-b/2/a;
 					i=Math.sqrt(-d)/2/a;
 					document.getElementById('out').innerHTML='`x = '+(+r.toFixed(5)).toString()+' \\pm '+(+i.toFixed(5)).toString()+'i`';

@@ -43,7 +43,7 @@ function daily(x) {
 		l.innerHTML = '&larr; Last Program';
 		h.appendChild(l)
 	}
-	if(x<4) {
+	if(x<5) {
 		var r = d.createElement('a');
 		r.id = 'lr';
 		r.href = (x+1).toString()+'.html';

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
 		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
-		<link rel="stylesheet" href="../CSS/main.css">
-		<link rel="stylesheet" href="../CSS/katex.min.css">
 	</head>
 	<body onload="daily(4)">
 		<div id="whitebox">
@@ -21,30 +21,24 @@
 				<span id='out'></span>
 			</form>
 			<pre id='code'>
-function f(n)
-{
+function f(n) {
 	for(var d=2;d<=Math.sqrt(n);d++) if (!(n%d)) return d;
 	return n;
 }
-function e(a,b,c,d,e)
-{
+function e(a,b,c,d,e) {
 	return [a*Math.pow(c,Math.floor(d/e)),b*Math.pow(c,d%e)];
 }
-function calc()
-{
+function calc() {
 	var x=parseFloat(document.getElementById('in').value);
 	var n=parseFloat(document.getElementById('in2').value);
 	var y=parseFloat(document.getElementById('in3').value);
-	if(x&&n>0&&y>0)
-	{
+	if(x&&n>0&&y>0) {
 		var a=Math.pow(y,1/n);
 		if(a%1==0)
 			return a*x;
-		else
-		{
+		else {
 			var b,i=o=fV=fC=[1];
-			while(y>1)
-			{
+			while(y>1) {
 				b=f(y);
 				if(fV==b) fC+=1;
 				else{a=e(o,i,fV,fC,n);fC=1;fV=b;o=a[0],i=a[1];}
@@ -59,30 +53,24 @@ function calc()
 	<script>
 		set = {delimiters:[{left:"`",right:"`",display:false}]};
 		renderMathInElement(document.getElementById('whitebox'),set);
-		function f(n)
-		{
+		function f(n) {
 			for(var d=2;d<=Math.sqrt(n);d++) if (!(n%d)) return d;
 			return n;
 		}
-		function e(a,b,c,d,e)
-		{
+		function e(a,b,c,d,e) {
 			return [a*Math.pow(c,Math.floor(d/e)),b*Math.pow(c,d%e)];
 		}
-		function calc()
-		{
+		function calc() {
 			var x=parseFloat(document.getElementById('in').value);
 			var n=parseFloat(document.getElementById('in2').value);
 			var y=parseFloat(document.getElementById('in3').value);
-			if(x&&n>0&&y>0)
-			{
+			if(x&&n>0&&y>0) {
 				var a=Math.pow(y,1/n);
 				if(a%1==0)
 					document.getElementById('out').innerHTML='` = '+(a*x).toString()+'`';
-				else
-				{
+				else {
 					var b,i=o=fV=fC=[1];
-					while(y>1)
-					{
+					while(y>1) {
 						b=f(y);
 						if(fV==b) fC+=1;
 						else{a=e(o,i,fV,fC,n);fC=1;fV=b;o=a[0],i=a[1];}
