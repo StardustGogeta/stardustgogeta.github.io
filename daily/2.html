@@ -3,9 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/katex.min.css">
-		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
+		<script src='../JS/common.js'></script>
 	</head>
 	<body onload="daily(2)">
 		<div id="whitebox">
@@ -15,7 +15,7 @@
 			is the first term, `n` is the position of the last term, and `r` is the common ratio.
 			If `r<1` and `n=\infty`, then `r^\infty=0` and `a_1(1-r^\infty)=a_1(1-0)=a_1`, thereby creating the infinite sum equation
 			seen in the previous program.<br><br>
-			<form onchange='calc()'>
+			<form id="prog">
 				`\sum_{n=1}`
 				<input id='in3' placeholder='n' style='position:relative;right:2.5em;bottom:1em;width:2em;font-size:.75em;margin-right:-2.5em;'>
 				<input id='in' placeholder='a&#8321;'>
@@ -24,24 +24,6 @@
 				`{\Large)}^{n-1}`
 				<span id='out'></span>
 			</form>
-			<pre id='code'>
-var a = parseFloat(document.getElementById('in').value);
-var r = parseFloat(document.getElementById('in2').value);
-var n = parseFloat(document.getElementById('in3').value);
-if (a && a < Infinity && r != 1 && r && n) return(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5));</pre>
 		</div>
-	<script>
-		set = {delimiters:[{left:"`",right:"`",display:false}]};
-		renderMathInElement(document.getElementById('whitebox'),set);
-		function calc() {
-			var a = parseFloat(document.getElementById('in').value);
-			var r = parseFloat(document.getElementById('in2').value);
-			var n = parseFloat(document.getElementById('in3').value);
-			if (a&&a<Infinity&&r!=1&&r!=0&&r&&n) {
-				document.getElementById('out').innerHTML='` = '+(+(a*(1-Math.pow(r,n))/(1-r)).toFixed(5)).toString()+'`';
-				renderMathInElement(document.getElementById('out'),set);
-			}
-		}
-	</script>
 	</body>
 </html>

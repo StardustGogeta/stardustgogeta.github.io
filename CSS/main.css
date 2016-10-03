@@ -44,78 +44,10 @@ input {
 	text-align: center;
 }
 
-#scratch {
-	font-family: Helvetica, sans-serif;
-	background-color: #FFA221;
-}
-
-#youtube {
-	font-family: Roboto, sans-serif;
-	background-color: #CD201F;
-}
-
-#reddit {
-	font-family: Verdana, sans-serif;
-	background-color: #CEE3F8;
-	text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-}
-
-#so {
-	font-family: Arial, sans-serif;
-	color: orange;
-	background-color: white;
-}
-
-#chess {
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
-	background-color: darkgreen;
-}
-
-#steam {
-	font-family: Tahoma, sans-serif;
-	background-color: #1B2838;
-}
-
-#origin {
-	font-family: Arial, sans-serif;
-	background: linear-gradient(#DDA64B, #E55E26);
-}
-
-#github {
-	color: black;
-	font-family: Helvetica, sans-serif;
-	background-color: white;
-	font-weight: bold;
-}
-
-#github a {
-	color: gray;
-}
-
-#code {
-	font-size: 0.5em;
-	color: white;
-	background-color: midnightblue;
-	width: 60%;
-	margin-left: 20%;
-	padding: 1%;
-	text-align: left;
-	font-family: monospace;
-	margin-top: 5vh;
-	tab-size: 4;
-}
-
-#ll {
-	margin-right:5%;
-}
-
-#lr {
-	margin-left:5%;
-}
-
 #ll, #lr {
 	border: 1px solid lightblue;
 	padding: .5em;
+	margin: 0 5%;
 	text-decoration: none;
 	font-family: Open Sans;
 }
@@ -133,27 +65,4 @@ input {
 	width: 80vw;
 	margin: 5vh auto;
 	padding: 2%;
-}
-
-.select {
-	margin: 5% 10% 10%;
-	font-size: 1.5em;
-}
-
-.acc  {
-	transition: all .25s ease-in-out;
-	height: 0;
-	font-size: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.click {
-	font-size: 2em;
-	border: solid white;
-	border-width: 0.5px 2px 0.5px 2px;
-	box-sizing: border-box;
-	width: 100%;
-	padding: .125em;
-	user-select: none;
 }
