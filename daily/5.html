@@ -3,36 +3,20 @@
 	<head>
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/katex.min.css">
-		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
+		<script src='../JS/common.js'></script>
 	</head>
 	<body onload="daily(5)">
 		<div id="whitebox">
 			<u>Pythagorean Theorem</u><br>
 			The square of a right triangle's hypotenuse is equal<br>
 			to the sum of the squares of its legs.<br><br>
-			<form onchange='calc()'>
+			<form id='prog'>
 				<input id='in' placeholder='a'>`^2+`
 				<input id='in2' placeholder='b'>`^2`
 				<span id='out'></span>
 			</form>
-			<pre id='code'>
-function calc() {
-	var a=parseFloat(document.getElementById('in').value);
-	var b=parseFloat(document.getElementById('in2').value);
-	return +((a**2+b**2)**.5).toFixed(5);
-}</pre>
 		</div>
-	<script>
-		set = {delimiters:[{left:"`",right:"`",display:false}]};
-		renderMathInElement(document.getElementById('whitebox'),set);
-		function calc() {
-			var a=parseFloat(document.getElementById('in').value);
-			var b=parseFloat(document.getElementById('in2').value);
-			if (a&&b) document.getElementById('out').innerHTML='`= '+(+((a**2+b**2)**.5).toFixed(5))+'^2`';
-			renderMathInElement(document.getElementById('out'),set);
-		}
-	</script>
 	</body>
 </html>

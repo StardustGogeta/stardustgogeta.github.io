@@ -3,9 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/katex.min.css">
-		<script src='../JS/common.js'></script>
 		<script src='../JS/katex.min.js'></script>
 		<script src="../JS/auto-render.min.js"></script>
+		<script src='../JS/common.js'></script>
 	</head>
 	<body onload="daily(1)">
 		<div id="whitebox">
@@ -13,7 +13,7 @@
 			When a geometric series has a common ratio with an absolute value of less than one, it is said to "converge".<br>
 			This point can be calculated using the formula `a_1\over(1-r)`, where `a_1`
 			is the first term and `r` is the common ratio.<br>
-			<form id='prog' onchange='calc()'>
+			<form id='prog'>
 				`\sum_{n=1}^\infty`
 				<input id='in' placeholder='a&#8321;'>
 				`*\Large(`
@@ -21,22 +21,6 @@
 				`{\Large)}^{n-1}`
 				<span id='out'></span>
 			</form>
-			<pre id='code'>
-var a = parseFloat(document.getElementById('in').value);
-var r = parseFloat(document.getElementById('in2').value);
-if (a&&Math.abs(r)<1) return +(a/(1-r)).toFixed(5);</pre>
 		</div>
-	<script>
-		set = {delimiters:[{left:"`",right:"`",display:false}]};
-		renderMathInElement(document.getElementById('whitebox'),set);
-		function calc() {
-			var a = parseFloat(document.getElementById('in').value);
-			var r = parseFloat(document.getElementById('in2').value);
-			if (a&&Math.abs(r)<1) {
-				document.getElementById('out').innerHTML='` = '+(+(a/(1-r)).toFixed(5)).toString()+'`';
-				renderMathInElement(document.getElementById('out'),set);
-			}
-		}
-	</script>
 	</body>
 </html>
