@@ -1,0 +1,22 @@
+body {
+	user-select: none;
+	color: white;
+	background-color: black;
+}
+
+canvas {
+	border: 1px dashed black;
+	background-color: gray;
+	margin: auto;
+}
+
+div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1 {
+	font-family: sans-serif;
+	text-align: center;
+	padding: .5em 0 0;
+}
