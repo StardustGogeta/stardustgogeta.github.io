@@ -1,0 +1,40 @@
+body {
+	user-select: none;
+	color: white;
+	background-color: black;
+}
+
+canvas {
+	border: 1px dashed white;
+	background-color: #222;
+	margin: auto;
+}
+
+div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1 {
+	font-family: sans-serif;
+	text-align: center;
+	padding: .5em 0 0;
+}
+
+span {
+	font-family: calibri;
+	font-weight: lighter;
+	font-size: 2em;
+	text-align: center;
+}
+
+input, button {
+	outline: none;
+	font-family: calibri;
+	font-weight: bold;
+	font-size: 2em;
+	border-radius: 10px;
+	width: 4em;
+	text-align: center;
+	margin: .5em;
+}

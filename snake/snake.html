@@ -1,0 +1,19 @@
+<link rel='stylesheet' href='snake.css'/>
+<head>
+	<title>Snake</title>
+</head>
+<body>
+	<center>
+		<h1>Snake Clone - StardustGogeta</h1>
+		<div>
+		<canvas id="game">
+		Your browser does not support HTML5 Canvas.
+		</canvas>
+		</div><br><br>
+		<span>Width</span><input id='w' type='number' value=20>
+		<span>Height</span><input id='h' type='number' value=20><br>
+		<span>Frame Time</span><input id='speed' type='number' value=150><br>
+		<button onclick='initializeGame(getDims());setNewInterval();'>Submit</button>
+	</center>
+	<script src='snake.js'></script>
+</body>
