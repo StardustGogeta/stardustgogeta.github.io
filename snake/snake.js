@@ -86,7 +86,6 @@ function moveToDirection(dir) {
 // The following code is taken from https://stackoverflow.com/a/23230280/5732397
 document.addEventListener('touchstart', handleTouchStart);
 document.addEventListener('touchmove', handleTouchMove);
-
 var xDown = null;
 var yDown = null;
 
@@ -99,14 +98,14 @@ function handleTouchMove(e) {
     var xUp = e.touches[0].clientX, yUp = e.touches[0].clientY;
     var dx = xDown - xUp, dy = yDown - yUp;
     if ( Math.abs(dx) > Math.abs(dy) ) {
-        if ( xDiff > 0 ) {
+        if ( dx > 0 ) {
             moveToDirection(3);
         }
 		else {
             moveToDirection(2);
         }
     } else {
-        if ( yDiff > 0 ) {
+        if ( dy > 0 ) {
             moveToDirection(0);
         }
 		else {
