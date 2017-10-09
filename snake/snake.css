@@ -2,6 +2,7 @@ body {
 	user-select: none;
 	color: white;
 	background-color: black;
+	overflow-y: hidden;
 }
 
 canvas {
