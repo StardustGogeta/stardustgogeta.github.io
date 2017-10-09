@@ -75,6 +75,49 @@ function initializeGame(gridDims) {
 }
 initializeGame(getDims());
 
+function moveToDirection(dir) {
+	var notThisDir = (dir > 1) * 2 + !(dir%2); // Opposite of current direction
+	if (direction != dir && direction != notThisDir && !movedThisFrame) {
+		direction = dir;
+		movedThisFrame = 1;
+	}
+}
+
+// The following code is taken from https://stackoverflow.com/a/23230280/5732397
+document.addEventListener('touchstart', handleTouchStart);
+document.addEventListener('touchmove', handleTouchMove);
+
+var xDown = null;
+var yDown = null;
+
+function handleTouchStart(e) {
+    xDown = e.touches[0].clientX;
+    yDown = e.touches[0].clientY;
+};
+
+function handleTouchMove(e) {
+    var xUp = e.touches[0].clientX, yUp = e.touches[0].clientY;
+    var dx = xDown - xUp, dy = yDown - yUp;
+    if ( Math.abs(dx) > Math.abs(dy) ) {
+        if ( xDiff > 0 ) {
+            moveToDirection(3);
+        }
+		else {
+            moveToDirection(2);
+        }
+    } else {
+        if ( yDiff > 0 ) {
+            moveToDirection(0);
+        }
+		else {
+            moveToDirection(1);
+        }
+    }
+    xDown = null;
+    yDown = null;
+};
+// This is the end of the code taken from StackOverflow.
+
 document.addEventListener('keydown', function(e) { // Key controls
 	//console.log(e.key);	
 	switch (e.key) {
@@ -82,24 +125,20 @@ document.addEventListener('keydown', function(e) { // Key controls
 			runFrame();
 			break;
 		case 'w':
-			if (direction != 1 && !movedThisFrame)
-				direction = 0;
-				movedThisFrame = 1;
+		case 'ArrowUp':
+			moveToDirection(0);
 			break;
 		case 's':
-			if (direction != 0 && !movedThisFrame)
-				direction = 1;
-				movedThisFrame = 1;
+		case 'ArrowDown':
+			moveToDirection(1);
 			break;
 		case 'd':
-			if (direction != 3 && !movedThisFrame)
-				direction = 2;
-				movedThisFrame = 1;
+		case 'ArrowRight':
+			moveToDirection(2);
 			break;
 		case 'a':
-			if (direction != 2 && !movedThisFrame)
-				direction = 3;
-				movedThisFrame = 1;
+		case 'ArrowLeft':
+			moveToDirection(3);
 			break;
 		case ' ':
 			pause ^= 1;
