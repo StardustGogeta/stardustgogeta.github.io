@@ -97,6 +97,7 @@ function handleTouchStart(e) {
 function handleTouchMove(e) {
     var xUp = e.touches[0].clientX, yUp = e.touches[0].clientY;
     var dx = xDown - xUp, dy = yDown - yUp;
+	//console.log(xUp, xDown, dx, yUp, yDown, dy);
     if ( Math.abs(dx) > Math.abs(dy) ) {
         if ( dx > 0 ) {
             moveToDirection(3);
@@ -112,8 +113,6 @@ function handleTouchMove(e) {
             moveToDirection(1);
         }
     }
-    xDown = null;
-    yDown = null;
 };
 // This is the end of the code taken from StackOverflow.
 
