@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Arithmetic and Geometric</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Arithmetic Series</h1>
+An arithmetic series is of the form `\displaystyle\sum_{n=1}^ka_n=a_1+a_2+a_3+\ldots`<br>
+where `a_{n+1}=a_n+d` for some constant `d`, called the <b>common difference</b>.<br><br>
+Gauss famously demonstrated the sum of integers with the following argument:<br>
+`\text{Let }S=\displaystyle\sum_{k=1}^nk`<br><br>
+`\begin{aligned}
+   S=1+2+3+\ldots+(n-2)+(n-1)+n \\
+   S=n+(n-1)+(n-2)+\ldots+3+2+1
+\end{aligned}`<br>
+`2S=(n+1)+(n+1)+(n+1)+\ldots+(n+1)+(n+1)+(n+1) \pod {n\text{ terms}}`<br><br>
+`\displaystyle 2S=n(n+1) \implies S=\frac{n(n+1)}2`<br><br>
+Using induction, it can be proven that, for an arithmetic sequence / series, `a_n=a_1+d(n-1)`<br>
+As a result, the sum `S` of a <u>finite</u> arithmetic series can be written as follows:<br><br>
+`\displaystyle S=\sum_{i=1}^na_i=\sum_{i=1}^n{(a_1+d(i-1))}=a_0*n+d\sum_{i=1}^n(i-1)=a_1*n+d*(\frac{n(n+1)}2-n)`<br>
+`\displaystyle =n(a_1+\frac{d(n+1)}2-d)=n(\frac{a_1}2+\frac{a_1+d(n-1)}2)=n(\frac{a_1+a_n}2)`<br><br>
+`\therefore \boxed{\sum_{i=1}^na_i=n(\frac{a_1+a_n}2)}`<br><br>
+By the <a href='convergence.html'>divergence test</a>, it is immediately obvious that an <u>infinite</u> arithmetic series diverges.
+<br><br>
+<h1>Geometric Series</h1>
+A geometric series is of the form `\displaystyle\sum_{n=1}^ka_n=a_1+a_2+a_3+\ldots`<br>
+where `a_{n+1}=a_n\cdot r` for some constant `r`, called the <b>common ratio</b>.<br><br>
+<b>Important Note:</b> It is clear that such a sequence / series will converge if and only if `\lvert r \rvert< 1`<br><br>
+Using induction, it can be proven that, for a geometric sequence / series, `a_n=a_0\cdot r^n`<br>
+For an <u>infinite</u> geometric series,<br>
+`\displaystyle S=\sum_{i=0}^\infty a_i`<br><br>
+`S=a_0+(a_0\cdot r)+(a_0\cdot r^2)+(a_0\cdot r^3)+\ldots`<br>
+`S\cdot r=(a_0\cdot r)+(a_0\cdot r^2)+(a_0\cdot r^3)+\ldots`<br><br>
+`\displaystyle S(1-r)=a_0 \implies S=\boxed{\sum_{i=0}^\infty a_i=\frac{a_0}{1-r}}`<br><br>
+For a <u>finite</u> geometric series,<br>
+`\displaystyle S=\sum_{i=0}^n a_i=(\sum_{i=0}^\infty a_i-\sum_{i=n+1}^\infty a_i)=(\frac{a_0}{1-r}-\frac{a_0\cdot r^{n+1}}{1-r})`<br><br>
+`\therefore \boxed{\sum_{i=0}^na_i=a_0(\frac{1-r^{n+1}}{1-r})} \iff \boxed{\sum_{i=1}^na_i=a_1(\frac{1-r^n}{1-r})}`<br><br>
+<br><br>
+</div>
+<script src="math.js"></script>
