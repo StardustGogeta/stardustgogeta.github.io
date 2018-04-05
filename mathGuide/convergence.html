@@ -10,18 +10,26 @@
 <div class='container'>
 <h1>Convergence Tests</h1>
 TODO: Mention absolute vs conditional convergence, possibly make table of contents<br>
-<b>Important Note:</b> All finite series converge, as long as each individual term is finite.<br>
+<b>Important Note:</b> All finite series converge, as long as each individual term is finite.<br><br>
 In order to work with infinite series and sequences, it is often necessary to know if they converge to a finite value.<br>
 This can be determined with a variety of techniques...<br><br>
 <h2>Divergence (n<sup>th</sup>-Term) Test</h2>
 `\displaystyle\sum_{n=1}^\infty a_n \text{ diverges if } \lim_{n\to\infty}a_n\neq 0`<br><br>
 <h2>Direct Comparison Test</h2>
-`\begin{aligned}
-    \displaystyle (\forall n\in\mathbb N, 0 < a_n < b_n) \implies &\sum_{n=1}^\infty a_n \text{ converges if } \sum_{n=1}^\infty b_n \text{ converges} \\
-    \And&\sum_{n=1}^\infty b_n \text{ diverges if } \sum_{n=1}^\infty a_n \text{ diverges}\end{aligned}`<br><br>
+`\displaystyle (\forall n\in\mathbb N, 0 < a_n < b_n) \implies`
+`\begin{cases}
+    \sum a_n \text{ converges} &\text{if }\sum b_n \text{ converges} \\
+    \sum b_n \text{ diverges} &\text{if }\sum a_n \text{ diverges}\end{cases}`<br><br>
 <h2>Alternating Series Test</h2>
 `\displaystyle (\forall n\in\mathbb N, 0 < a_{n+1} < a_n) \implies \sum_{n=1}^\infty (-1)^na_n \text{ converges}`<br><br>
 <h2>Integral Test</h2>
-`\displaystyle (\forall x \in [1,\infty), f'(x) \leq 0 \land f(x) \geq 0) \implies \sum_{n=1}^\infty a_n \text{ converges } \iff \int_1^\infty f(x) \mathrm d x \text{ converges}`<br><br>
+`\displaystyle (\forall x \in [1,\infty), f'(x) \leq 0 \land f(x) \geq 0) \implies \sum_{n=1}^\infty f(n) \text{ converges } \iff \int_1^\infty f(x) \mathrm d x \text{ converges}`<br><br>
+<h2>Ratio Test</h2>
+`\displaystyle r=\lim_{n\to\infty}\lvert\frac{a_{n+1}}{a_n}\rvert \implies`
+`\begin{cases}
+    \sum a_n \text{ converges} &\text{if } r < 1 \\
+    \text{Inconclusive} &\text{if } r = 1 \\
+    \sum a_n \text{ diverges} &\text{if } r > 1 
+\end{cases}`
 </div>
 <script src="math.js"></script>
