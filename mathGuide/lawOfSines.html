@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Law of Sines</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Law of Sines</h1>
+<img width='50%' src='img/lawOfSines.png'><br>
+The <b>law of sines</b> draws a relation between angles and the sides opposite them.<br>
+To derive the formula, choose two angles of an arbitrary triangle and construct the altitude perpendicular to their shared edge.<br><br>
+`\displaystyle \sin B = \frac d c, \, \sin C = \frac d b \implies d=c\cdot \sin B = b\cdot \sin C \implies \frac {\sin B} b = \frac {\sin C} c`<br><br>
+Repeat with the third angle and one of the two previous angles to obtain:<br>
+`\boxed{\displaystyle \frac {\sin A} a = \frac {\sin B} b = \frac {\sin C} c}`<br><br>
+As seen below, this applies even for obtuse angles, keeping in mind that `\sin (\pi-\theta) = \sin \theta` for all angles `\theta`.<br>
+<img width='50%' src='img/lawOfSinesObtuse.png'>
+</div>
+<script src="math.js"></script>
