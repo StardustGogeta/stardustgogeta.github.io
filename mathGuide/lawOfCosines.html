@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Law of Cosines</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Law of Cosines</h1>
+<img width='40%' src='img/lawOfCosines.png'><br>
+The <b>law of cosines</b> is a generalized extension of the Pythagorean theorem, and it is commonly used for finding an angle from three side measures.<br>
+TODO: Link Pythagorean theorem above and identity below<br>
+To derive the formula, construct an altitude of the triangle, as above, and observe the following:<br><br>
+`\displaystyle c^2=(\overbrace{a\sin C}^d)^2+(b-\overbrace{a\cos C}^e)^2`<br><br>
+Simplify and apply the Pythagorean identity:<br>
+`c^2=a^2\sin^2C+b^2-2ab\cos C+a^2\cos^2C`<br>
+`\implies c^2=a^2(\sin^2C+\cos^2C)+b^2-2ab\cos C`<br>
+`\implies \boxed{c^2=a^2+b^2-2ab\cos C}`<br><br>
+As seen below, this applies even for obtuse angles, keeping in mind that `\sin(\pi-\theta) = \sin\theta` and `\cos(\pi-\theta) = -\cos\theta` for all angles `\theta`.<br><br>
+<img width='35%' src='img/lawOfCosinesObtuse.png'>
+</div>
+<script src="math.js"></script>
