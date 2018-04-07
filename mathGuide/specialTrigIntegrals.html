@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Special Trigonometric Integrals</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Special Trigonometric Integrals</h1>
+There are a select few functions specifically defined to be the antiderivatives of common integrands.<br>
+Several are listed below:<br><br>
+`\displaystyle \mathrm{Si}(x)=\int_0^x \frac{\sin t}t\,\mathrm dt=\int_0^x \mathrm{sinc}\,t\,\mathrm dt`<br><br>
+`\displaystyle \mathrm{si}(x)=-\int_x^\infty \frac{\sin t}t\,\mathrm dt`<br><br>
+In the first function above, the `\mathrm{sinc}(x)` function is known as the "cardinal sine function".<br>
+Note that, by definition, `\mathrm{Si}(x)-\mathrm{si}(x)=\int_0^\infty \frac{\sin t}t\,\mathrm dt=\frac\pi2`, known as the Dirichlet integral.<br>
+TODO: Links above and below!<br><br>
+`\displaystyle \mathrm{Ci}(x)=-\int_x^\infty \frac{\cos t}t\,\mathrm dt=\gamma+\ln x+\int_0^x \frac{\cos t-1}t\,\mathrm dt`<br><br>
+`\displaystyle \mathrm{Cin}(x)=\int_0^x \frac{1-\cos t}t\,\mathrm dt=\gamma+\ln x-\mathrm{Ci}(x)`<br><br>
+In the two definitions above, `\gamma` represents the Euler-Mascheroni constant.<br>
+TODO: Add hyperbolics, sin(x^2) family (Fresnel), and broaden scope or add another page with exponential integral, erf, and erfi, and Gaussian integral / Gaussian function
+</div>
+<script src="math.js"></script>
