@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>Function Glossary: Injection, Surjection, and Bijection</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Function Glossary: Injection, Surjection, and Bijection</h1>
+In set theory, it is important to know how the elements of one set are mapped to another by a function.
+It is important to recall that functions have only a single output for a given input, thus passing the "vertical line test".<br><br>
+
+The <b>domain</b> of a function is the set of all possible input values.<br>
+The <b>range</b> of a function is most often used to describe the values taken on by a function within its domain, known as the <b>image</b>, but is sometimes used to mean the set of all possible output values for the function, the <b>codomain</b>.<br>
+The codomain of a function is, by definition, a superset of its image. For instance, the image of `f:\mathbb R\mapsto\mathbb R, f(x)=x^2` is `[0,\infty)`,
+the set of nonnegative real numbers, whereas the codomain is `\mathbb R`, the set of all real numbers.<br>
+The <b>inverse</b> `g` of a function `f` that has domain `X` and image `Y` will have domain `Y` and image `X`, and composing the two functions `(f\circ g)` or `(g\circ f)` will result in the identity function.<br><br>
+
+
+<b>Injective</b> functions are those where every output has only a single input, or alternatively, where `f(x)=f(y) \implies x=y`.
+These functions pass the "horizontal line test", and, if not bijections, their inverses will be only <b>partial functions</b>, not <b>total functions</b> of their domain.<br>
+<b>Surjective</b> ("onto") functions are those where every output is used, or alternatively, where the image and codomain are equivalent.
+As the codomain is an arbitrary extension of the image, surjection can be easily forced by limiting the codomain to include only the image.<br>
+<b>Bijective</b> functions are those which are both injective and surjective; every element of the codomain is mapped-to exactly once.
+These functions are the only ones that are invertible.<br><br>
+
+As examples,<br>
+`f:\mathbb N\mapsto\mathbb R, f(x)=x` is an injection.<br>
+`f:\mathbb R\mapsto\mathbb Z, f(x)=\lfloor x\rfloor` is a surjection.<br>
+`f:\mathbb R\mapsto\mathbb R, f(x)=x` is a bijection.<br>
+`f:\mathbb R\mapsto\mathbb R, f(x)=\pm\sqrt x` is not a function.
+<br><br>
+</div>
+<script src="math.js"></script>
