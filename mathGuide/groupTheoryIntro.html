@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Introduction to Group Theory</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Introduction to Group Theory</h1>
+An <b>algebraic structure</b> is a <b>set</b> with a collection of operations (with finite numbers of inputs) that may act upon it.<br>
+<b>Groups</b> are a particular subset of algebraic structures: they must have at least one binary operator and satisfy the following four axioms / requirements:<br>
+<ol>
+    <li>Associativity: `\forall a,b,c\in\mathbb X, (a \oplus b) \oplus c = a \oplus (b \oplus c)`</li>
+    <li>Closure: `\forall a, b \in \mathbb X, a \oplus b = c \implies c\in\mathbb X`</li>
+    <li>Identity Element: `\exists i\in\mathbb X: \forall a\in\mathbb X, a\oplus i = i\oplus a = a`</li>
+    <li>Inversion: `\forall a\in\mathbb X, \exists b\in\mathbb X: a\oplus b = b\oplus a = i \pod{\text{where }i\text{ is the identity element}}`</li>
+</ol>
+(On this page, `\mathbb X` represents an arbitrary set and `\oplus` an arbitrary operator)<br>
+TODO: Link set notation, bijection<br><br>
+Groups can be defined using set notation to describe the set and the operator, and this combination forms <b>group theory notation</b>. <sup><a href='https://math.stackexchange.com/a/578185/335369'>[src]</a></sup><br>
+For instance, `(\mathbb Z, +)` denotes the "set of integers under addition" and `(\mathbb Q \setminus\{0\}, *)` notates the "set of rationals (excluding zero) under multiplication".<br>
+In general, this can be written as `(\mathbb X, \oplus)`.<br>
+<b>Important Note</b>: `(\mathbb Q, *)` is not a group because there is no element `b` for which `0*b=1`. <sup><a href='https://math.stackexchange.com/a/1111164/335369'>[src]</a></sup><br><br>
+<h2>Key Words</h2>
+<b>Abelian groups</b> are those for which the operator is <b>commutative</b>: `\forall a,b\in\mathbb X, a\oplus b=b\oplus a`.<br>
+<b>Subgroups</b> are groups that are subsets of larger groups, still obeying all four key axioms.<br>
+<b>Group homomorphisms</b> are functions `f:\mathbb X\to\mathbb Y` such that, with groups `(\mathbb X, \oplus)` and `(\mathbb Y, \boxdot)` and `a,b\in\mathbb X, f(a\oplus b)=f(a)\boxdot f(b)`.<br>
+<b>Isomorphisms</b> are a subset of homomorphisms, those which have inverse functions that are also homomorphisms.<br>
+This implies that isomorphisms are <b>bijective (homo)morphisms</b>. Composing isomorphisms forms an "<b>identity function</b>".<br>
+Two groups that admit an isomorphism are called "<b>isomorphic</b>". This is written as `\mathbb A \cong\mathbb B` for groups with underlying sets `\mathbb A` and `\mathbb B`. <sup><a href='http://mathworld.wolfram.com/Isomorphism.html'>[src]</a></sup><br>
+<b>Automorphisms</b> are isomorphisms of a object, often a group, which map the object unto itself. <sup><a href='http://mathworld.wolfram.com/Automorphism.html'>[src]</a></sup><br>
+The set of these (along with function composition) forms an "<b>automorphism group</b>". <sup><a href='https://en.wikipedia.org/wiki/Automorphism#Automorphism_group'>[src]</a></sup><br>
+<b>Important Note</b>: This will form a group, no matter if the original object was a group, ring, module, or other structure. <sup><a href='https://math.stackexchange.com/a/194341/335369'>[src]</a></sup><br>
+<br>TODO: Fully utilize http://mathworld.wolfram.com/Morphism.html<br>
+<hr>
+<i>Information primarily gathered from StackExchange / MathOverflow, Wolfram MathWorld, and <a href='https://en.wikipedia.org/wiki/Group_(mathematics)'>Wikipedia</a></i>.<br>
+<i>Far more can be found as part of Evan Chen's <a href='http://web.evanchen.cc/napkin.html'>Napkin Project</a>.</i>
+<br><br>
+</div>
+<script src="math.js"></script>
