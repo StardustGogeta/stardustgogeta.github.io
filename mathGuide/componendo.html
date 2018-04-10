@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Componendo and Dividendo</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Componendo and Dividendo</h1>
+When participating in math competitions, there are a handful of useful tricks that can be used for solving rational equations. <sup><a href='https://brilliant.org/wiki/componendo-and-dividendo/'>[src]</a></sup><br><br>
+Assume that `\displaystyle \frac ab=\frac cd` for nonzero `b` and `d`, and `k` is such that no denominators are zero.<br><br>
+By performing some algebraic manipulation, one can find the following identity:<br>
+`\displaystyle \frac ab=\frac cd\implies\frac ab+k=\frac cd+k\implies\frac ab+\frac {kb}b=\frac cd+\frac {kd}d\implies\boxed{\frac{a+kb}b=\frac{c+kd}d}\pod\text{Componendo}`<br><br>
+Similarly:<br>
+`\displaystyle \frac ab=\frac cd\implies\frac ab-k=\frac cd-k\implies\frac ab-\frac {kb}b=\frac cd-\frac {kd}d\implies\boxed{\frac{a-kb}b=\frac{c-kd}d}\pod\text{Dividendo}`<br><br>
+Next, divide the above two results:<br><br>
+`\displaystyle \frac{\frac{a+kb}b}{\frac{a-kb}b}=\frac{\frac{c+kd}d}{\frac{c-kd}d} = \boxed{\frac{a+kb}{a-kb}=\frac{c+kd}{c-kd}}\pod\text{Componendo et Dividendo}`<br><br>
+The following are some more basic, but helpful identities: <sup><a href='http://www.qc.edu.hk/math/Junior%20Secondary/Componendo%20et%20Dividendo.htm'>[src]</a></sup><br><br>
+`\displaystyle \frac ab = \frac{a(b+kd)}{b(b+kd)} \implies \frac ab = \frac{ab+kad}{b(b+kd)} \implies \frac ab = \frac{a+\frac abkd}{b+kd} \implies \frac ab = \frac{a+\frac cdkd}{b+kd} \implies\boxed{\frac ab=\frac{a+kc}{b+kd}}`<br><br>
+`\displaystyle \frac ab=\frac cd\implies\boxed{\frac ac=\frac bd}\pod\text{Alternendo}`<br><br>
+`\displaystyle \frac ab=\frac cd\implies\boxed{\frac ba=\frac dc}\pod\text{Invertendo}`<br>
+<br><br>
+</div>
+<script src="math.js"></script>
