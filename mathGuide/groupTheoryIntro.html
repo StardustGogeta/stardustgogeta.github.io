@@ -18,22 +18,46 @@ An <b>algebraic structure</b> is a <b>set</b> with a collection of operations (w
     <li>Inversion: `\forall a\in\mathbb X, \exists b\in\mathbb X: a\oplus b = b\oplus a = i \pod{\text{where }i\text{ is the identity element}}`</li>
 </ol>
 (On this page, `\mathbb X` represents an arbitrary set and `\oplus` an arbitrary operator)<br>
-TODO: Link set notation, bijection<br><br>
+TODO: Link set notation<br><br>
 Groups can be defined using set notation to describe the set and the operator, and this combination forms <b>group theory notation</b>. <sup><a href='https://math.stackexchange.com/a/578185/335369'>[src]</a></sup><br>
-For instance, `(\mathbb Z, +)` denotes the "set of integers under addition" and `(\mathbb Q \setminus\{0\}, *)` notates the "set of rationals (excluding zero) under multiplication".<br>
+For instance, `(\mathbb Z, +)` denotes the "set of integers under addition" and `(\mathbb Q \setminus\{0\}, \cdot)` notates the "set of rationals (excluding zero) under multiplication".<br>
 In general, this can be written as `(\mathbb X, \oplus)`.<br>
-<b>Important Note</b>: `(\mathbb Q, *)` is not a group because there is no element `b` for which `0*b=1`. <sup><a href='https://math.stackexchange.com/a/1111164/335369'>[src]</a></sup><br><br>
+<b>Important Note</b>: `(\mathbb Q, \cdot)` is not a group because there is no element `b` for which `0\cdot b=1`. <sup><a href='https://math.stackexchange.com/a/1111164/335369'>[src]</a></sup><br><br>
+<b>Rings</b> are composed of a set and <u>two</u> binary operations, and they obey the "ring axioms": <sup><a href='https://en.wikipedia.org/wiki/Ring_(mathematics)#Definition'>[src]</a></sup><br>
+<ol>
+    <li>The set is an Abelian group under addition.</li>
+    <li>Multiplication is associative and there exists a multiplicative identity.</li>
+    <li>Multiplication is distributive over addition.</li>
+</ol>
+Multiplication must maintain closure, but it is not necessarily commutative and does not need to be invertible.<br>
+A ring without a multiplicative identity is called a <b>rng</b>, or alternatively, a <b>pseudo-ring</b> ("pseudo-ring" is slightly ambiguous and should be avoided). <sup><a href='https://en.wikipedia.org/wiki/Rng_(algebra)'>[src]</a></sup><br>
+A ring in which the operation of multiplication is commutative is said to be a <b>commutative ring</b>.<br>
+In a commutative ring, if there is an element `a` such that `a\neq 0` and `\exists b:a\cdot b=0`, `a` is said to be a <b>zero divisor</b>.<br>
+A commutative ring with no zero divisors is known as an <b>integral domain</b>, and an example is the set of integers `\mathbb Z`. <sup><a href='https://cs.uwaterloo.ca/~alopez-o/math-faq/mathtext/node6.html'>[src]</a></sup><br><br>
+<b>Fields</b> are rings in which the elements of a ring (excluding the zero) comprise an Abelian group with the second operation.<br>
+This means that in addition to the ring axioms, fields have commutativity of multiplication and multiplicative inverses.<br>
+An example of a field is the set of rational numbers, `\mathbb Q`.<br><br>
+<b>Important Note</b>: In the context of group theory, `0` and `1` are often defined as the additive and multiplicative identities,
+where "addition" [`+`] and "multiplication" [ `\cdot` ] are default names and symbols given to the two operations involved.
+These often, but not always, coincide with the conventional usages.<br><br>
 <h2>Key Words</h2>
 <b>Abelian groups</b> are those for which the operator is <b>commutative</b>: `\forall a,b\in\mathbb X, a\oplus b=b\oplus a`.<br>
 <b>Subgroups</b> are groups that are subsets of larger groups, still obeying all four key axioms.<br>
 <b>Group homomorphisms</b> are functions `f:\mathbb X\to\mathbb Y` such that, with groups `(\mathbb X, \oplus)` and `(\mathbb Y, \boxdot)` and `a,b\in\mathbb X, f(a\oplus b)=f(a)\boxdot f(b)`.<br>
 <b>Isomorphisms</b> are a subset of homomorphisms, those which have inverse functions that are also homomorphisms.<br>
-This implies that isomorphisms are <b>bijective (homo)morphisms</b>. Composing isomorphisms forms an "<b>identity function</b>".<br>
-Two groups that admit an isomorphism are called "<b>isomorphic</b>". This is written as `\mathbb A \cong\mathbb B` for groups with underlying sets `\mathbb A` and `\mathbb B`. <sup><a href='http://mathworld.wolfram.com/Isomorphism.html'>[src]</a></sup><br>
+This implies that isomorphisms are <b><a href='injection.html'>bijective</a> (homo)morphisms</b>. Composing isomorphisms forms an "<b>identity function</b>".<br>
+Two groups that admit an isomorphism are called "<b>isomorphic</b>". This is written as `\mathbb A \cong\mathbb B` for groups with underlying sets `\mathbb A` and `\mathbb B`. <sup><a href='http://mathworld.wolfram.com/Isomorphism.html'>[src]</a></sup><br><br>
 <b>Automorphisms</b> are isomorphisms of a object, often a group, which map the object unto itself. <sup><a href='http://mathworld.wolfram.com/Automorphism.html'>[src]</a></sup><br>
 The set of these (along with function composition) forms an "<b>automorphism group</b>". <sup><a href='https://en.wikipedia.org/wiki/Automorphism#Automorphism_group'>[src]</a></sup><br>
 <b>Important Note</b>: This will form a group, no matter if the original object was a group, ring, module, or other structure. <sup><a href='https://math.stackexchange.com/a/194341/335369'>[src]</a></sup><br>
-<br>TODO: Fully utilize http://mathworld.wolfram.com/Morphism.html<br>
+Automorphism groups must satisfy the following four requirements, analogous to those identified for groups above:
+<ol>
+    <li>Associativity: Composition of automorphisms is associative.</li>
+    <li>Closure: Composing any two automorphisms will produce another automorphism.</li>
+    <li>Identity Element: The identity function is an automorphism, so it is included by definition.</li>
+    <li>Inversion: All automorphisms in the group have inverse functions by definition.</li>
+</ol>
+<br>TODO: Fully utilize http://mathworld.wolfram.com/Morphism.html, monoids and others from https://cs.uwaterloo.ca/~alopez-o/math-faq/mathtext/node6.html<br>
 <hr>
 <i>Information primarily gathered from StackExchange / MathOverflow, Wolfram MathWorld, and <a href='https://en.wikipedia.org/wiki/Group_(mathematics)'>Wikipedia</a></i>.<br>
 <i>Far more can be found as part of Evan Chen's <a href='http://web.evanchen.cc/napkin.html'>Napkin Project</a>.</i>
