@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Epsilon-Delta Limits</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Epsilon-Delta Limits</h1>
+Limits required a rigorous definition, and the epsilon-delta definition satisfied this need.<br><br>
+This definition states that for `x` in a subset of the real numbers arbitrarily near a value `c`, `\displaystyle\lim_{x\to c}f(x)=L` if and only if<br>
+`\forall \epsilon>0, \exists \delta: 0<\lvert x-c \rvert<\delta\implies\lvert f(x)-L\rvert<\epsilon`.<br><br>
+Note that `f(x)` need not be defined at `c`!<br>
+Proofs that rely upon the use of the minimum function artificially place a maximum on the distance from `c`<br>
+and restrict the domain, but this is still valid because the domain can be arbitrarily small by definition.<br><br>
+<h2>Example 1:</h2>
+Prove `\lim_{x\to\pi}=\pi`.<br>
+Start by finding `\epsilon`, then define `\delta` in relative terms.<br>
+`\epsilon > \lvert f(x)-\pi \rvert = \lvert x-\pi \rvert>0`<br><br>
+Choosing `\delta=\epsilon` completes the proof.<br><br>
+<h2>Example 2:</h2>
+Prove `\lim_{x\to1}(5x-3)=2`.<br>
+Once again, start by finding `\epsilon`, then define `\delta`:<br>
+`\epsilon > \lvert f(x)-2 \rvert = \lvert (5x-3)-2 \rvert = \lvert 5(x-1) \rvert = 5\lvert x-1 \rvert>0\implies\frac\epsilon5 >\lvert x-1 \rvert>0`<br><br>
+Choosing `\delta=\frac\epsilon5` completes the proof.<br><br>
+<h2>Example 3:</h2>
+Prove `\lim_{x\to7}(x^2+1)=50`.<br>
+Using `\delta > \lvert x-7 \rvert > 0`:<br>
+`\lvert f(x)-50 \rvert = \lvert (x^2+1)-50 \rvert = \lvert x^2-49 \rvert = \lvert x-7 \rvert\lvert x+7 \rvert < \delta\lvert x+7 \rvert`<br>
+Assume `\delta \leq 1 \implies \lvert x-7 \rvert\leq1 \implies -1 \leq x-7 \leq 1 \implies 6 \leq x\leq 8 \implies \lvert x\rvert \leq 8`.<br>
+TODO: Link triangle inequality<br>
+By the triangle inequality, `\lvert x+7 \rvert \leq \lvert x \rvert + 7 \leq 15`. Hence, `\lvert f(x)-50 \rvert < 15\delta`.<br><br>
+Choosing `\delta=\min(1,\frac\epsilon{15})` completes the proof and satisfies the assumption.<br><br>
+TODO: Infinite limits<br>
+<hr>
+Information and examples taken from <a href='https://brilliant.org/wiki/epsilon-delta-definition-of-a-limit/'>Brilliant</a>.
+<br><br>
+</div>
+<script src="math.js"></script>
