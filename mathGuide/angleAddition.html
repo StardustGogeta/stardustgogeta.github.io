@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Angle Addition Identities</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Angle Addition Identities</h1>
+There are some key identities that allow decomposition of angle addition in the sine, cosine, and tangent functions.<br><br>
+<img width="37.5%" src='img/angleAddition.svg'></img><br><br>
+In the diagram above, the length of the green line is `\sin(x+y)`.<br>
+The segment beneath the horizontal is equal in length to the right edge of the rectangle, featured in blue, with a length of `\cos(x)\sin(y)`.<br>
+The length of the upper segment is given by `\sin(x)\cos(y)`, as formed by the triangle in the upper-right.<br>
+Altogether,<br>`\boxed{\sin(x+y)=\sin(x)\cos(y)+\cos(x)\sin(y)}`<br><br>
+Next, the length of the blue segment left of the green vertical is `\cos(x+y)`, while the complete length of the line is given by `\cos(x)\cos(y)`.<br>
+The length of the segment on the right is `\sin(x)\sin(y)`, as shown by the triangle in the upper-right corner.<br>
+Therefore, the part of the blue line left of the green is equal to:<br>
+`\boxed{\cos(x+y)=\cos(x)\cos(y)-\sin(x)\sin(y)}`<br><br>
+Dividing the two formulas:<br>
+`\displaystyle\frac{\sin(x+y)}{\cos(x+y)}=\frac{\sin(x)\cos(y)+\cos(x)\sin(y)}{\cos(x)\cos(y)-\sin(x)\sin(y)}=\boxed{\tan(x+y)=\frac{\tan(x)+\tan(y)}{1-\tan(x)\tan(y)}}`
+<hr>
+Proofs taken from <a href='https://www.khanacademy.org/math/trigonometry/trig-equations-and-identities/intro-to-trig-angle-addition-identities/v/proof-angle-addition-sine'>Khan Academy</a>.
+<br><br>
+</div>
+<script src="math.js"></script>
