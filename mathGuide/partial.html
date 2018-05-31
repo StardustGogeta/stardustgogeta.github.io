@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Partial Derivatives</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Partial Derivatives</h1>
+Partial derivatives are derivatives of functions of more variable are those which are taken with respect to one variable and holding all others constant, ignoring
+any possible interdependencies that the chain rule would normally account for. The partial derivative is represented by the symbol `\partial`.<br><br>
+The partial derivative of a function `f` with respect to `x` can be written as `\displaystyle\frac\partial{\partial x}f`, `\displaystyle\frac{\partial f}{\partial x}`, `\partial_xf`, or even `f_x`.<br><br>
+For instance, given a function `f(x,y)=x^2y+3x+y-10`, the partial derivative with respect to `x` would be `\frac{\partial f}{\partial x}=2xy+3`.<br>
+Taken with respect to `y`, the partial derivative would be `\frac{\partial f}{\partial y}=x^2+1`<br><br>
+There is an implicit difference in the significance of the partial derivative notation versus that of normal Leibniz notation for derivatives.<br>
+With traditional single-variable (or total) derivatives, they can often be treated like fractions as a result of the chain rule and similar manipulations. <sup><a href='https://math.stackexchange.com/q/1784671'>[src 1]</a></sup> <sup><a href='http://tutorial.math.lamar.edu/Classes/CalcII/ParaTangent.aspx'>[src 2]</a></sup><br>
+These tricks often fail when extended to partial derivatives, and should be avoided. The partial derivative should be viewed more as an operator than a fraction in every circumstance.<br><br>
+<b>Important Note:</b> Differentials with functions of multiple variables are quite logical. For instance, given a function `z(x,y)`, the total differential is<br>
+`\displaystyle\mathrm dz=\mathrm dx\frac{\partial z}{\partial x}+\mathrm dy\frac{\partial z}{\partial y}` and the <b>total derivative</b> is `\displaystyle\frac{\mathrm dz}{\mathrm dt}=\frac{\mathrm dx}{\mathrm dt}\frac{\partial z}{\partial x}+\frac{\mathrm dy}{\mathrm dt}\frac{\partial z}{\partial y}`.<br><br>
+<b>Important Note:</b> Integrals are also different when dealing with partial derivatives. Normally, there is a constant of integration with single-variable functions, but now, except for with total derivatives or gradients, there is an arbitrary function of one or more variables left over. For instance,<br>
+`\displaystyle\int\frac{\mathrm dy}{\mathrm dx}\mathrm dx=y+C`, but `\displaystyle\int\frac{\partial}{\partial x}f(x,y)\mathrm dx=f(x,y)+C(y)` <sup><a href='https://math.stackexchange.com/a/606708/335369'>[src]</a></sup><br><br>
+<b>Important Note:</b> `f_{xy}=f_{yx}` holds true for every function `f`. In other words, the order of partial differentiation is inconsequential. 
+<br><br>
+</div>
+<script src="math.js"></script>
