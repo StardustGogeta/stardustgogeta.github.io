@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>First-Order Logic</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>First-Order Logic</h1>
+In set theory (and mathematics in general), there is a language ("formal system") used to formalize statements and axioms known as <b>first-order logic</b>.
+Alternatively known as <b>predicate logic</b>, this allows for general statements to be made about sets and their elements, among other things.
+There is a traditional collection of symbols used in first-order logic, including equality (`=`), conjunction / intersection (`\land`), disjunction / union (`\lor`),
+implication (`\to`), biconditional (`\leftrightarrow`), negation (`\neg`), "for all" (`\forall`), and "exists" (`\exists`). These are also used with arbitrary variables and conventional punctuation.<br><br>
+Contrast this with <b>propositional logic</b>, which uses only implication and negation to describe cause-and-effect relationships.
+Both propositional and predicate logic use collections of symbols, operators, axioms, and inference rules (such as <i>modus ponens</i>) in order to establish the respective systems.<br>
+<i>Modus Ponens</i>: `P \land (P\to Q)\to Q`<br><br>
+In <b>second-order logic</b>, predicates and subsets can be described and quantified, unlike in first-order logic, which deals only in individual elements and relations.
+Another limitation is that first-order logic cannot uniquely describe infinite structures like the `\mathbb N` or `\mathbb R`, while second-order logic can.
+For instance, second-order logic can express the property that every subset of the naturals has a lowest element, but, by definition, first-order logic cannot.<br><br>
+<b>Higher-order logic</b> is an extension of this concept. First-order logic quantifies over individuals, second-order logic quantifies over sets, third-order logic quantifies over sets of sets, and so on.
+As part of this naming scheme, propositional logic is sometimes labelled "zeroth-order logic", as each higher order logic system is a superset of the constructions of those below it.<br><br>
+It is a famous result as part of <b>Gödel's incompleteness theorem</b> that no formal system which models Peano arithmetic can be simultaneously...<br>
+<ul>
+    <li><b>Sound</b>: Everything valid in the system is true</li>
+    <li><b>Complete</b>: Everything true is valid in the system</li>
+    <li><b>Effective</b>: There exists a terminating proof-checking decision algorithm</li>
+</ul>
+In other words, no system can assert its own consistency, nor can it prove / disprove every possible statement made.
+<br><br>
+</div>
+<script src="math.js"></script>
