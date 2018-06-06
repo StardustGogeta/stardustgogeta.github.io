@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Proof by Contradiction and Classical Logic</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Proof by Contradiction and Classical Logic</h1>
+One method of proof is known as <b>proof by contradiction</b>, an instance of the argument technique called <i>reductio ad absurdum</i>.
+Based upon the "law of noncontradiction", this method is a two-part process: making an assumption, then deriving a logical contradiction from that assumption.
+This is known as a "nonconstructive method" because it does not build up to or construct an argument or object in the traditional sense.<br>
+<b>Important Note</b>: Proof by infinite descent is a specific type of proof by contradiction which uses the least-integer principle (well-ordered property of `\mathbb N`).
+This involves demonstrating that for any positive integer solution to a problem, there exists a smaller positive integer solution that also works. Therefore, there are no solutions in the positive integers.<br><br>
+<h2>Laws of Classical Logic</h2>
+<ol>
+    <li>Law of Identity: `P=P`</li>
+    <li>Law of Noncontradiction: `\neg(P\land \neg P)`</li>
+    <li>Law of the Excluded Middle: `P\lor\neg P`</li>
+</ol>
+<b>Important Note</b>: Intuitionist logic, on the other hand, deliberately excludes the law of the excluded middle and double-negation elimination.<br>
+<b>Important Note</b>: Proof by contradiction is not to be confused with <b>proof by contraposition</b>, which proves the contrapositive of the intended statement.
+Note that proof by contraposition does not require use of the law of the excluded middle.<br>
+<i>Contraposition</i>: `\neg Q \land(P\to Q)\to\neg P`<br><br>
+<h2>Example 1:</h2>
+<i>Prove that `\sqrt2` is irrational.</i><br>
+By definition, rational numbers can be written as `a/b` with `a,b\in\mathbb Z` and `\gcd(a,b)=1`.<br>
+Assume that `\sqrt2` is rational. Then, let `\sqrt2=a/b\implies a^2=2b^2`<br>
+As a result, `2\mid a^2\implies2\mid a\implies4\mid a^2`<br>
+Let `4k=a^2=2b^2\implies 2k=b^2\implies 2\mid b^2\implies 2\mid b`<br>
+`(2\mid a)\land(2\mid b)\implies\gcd(a,b)\ge2`<br>
+This is a contradiction. Therefore, the assumption was false, and `\sqrt2` is irrational.<br><br>
+<h2>Example 2:</h2>
+<i>Prove that the sum of any rational number and any irrational number is irrational.</i><br>
+Assume, for the sake of contradiction, that the `a+b=c` where `a` and `c` are rational and `b` is irrational.<br>
+By the closure of the field of rationals under subtraction, `c-a=b` is rational.<br>
+This is a contradiction. Therefore, the assumption was false, and the sum of any rational number and any irrational number is irrational.
+<br><br>
+</div>
+<script src="math.js"></script>
