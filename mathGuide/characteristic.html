@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Characteristic Equations</title>
+    <link rel="stylesheet" href="../CSS/katex.min.css">
+    <script src='../JS/katex.min.js'></script>
+    <script src="../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Characteristic Equations</h1>
+One method of solving linear homogeneous differential equations is by finding the corresponding "characteristic equation" for the given situation.<br>
+For a differential equation written as `\displaystyle\sum_{k=0}^na_ny^{(n)}=0`, the characteristic equation (a polynomial in `r`)
+is given by `\displaystyle\sum_{k=0}^na_nr^{n}=0`, for constant coefficients `a_n`.<br><br>
+Each distinct root of the characteristic equation corresponds to a term in the general solution to the differential equation. For roots `\alpha_0`, `\alpha_1`, `\alpha_2`, etc.,
+the general solution is `\displaystyle y=c_0e^{\alpha_0x}+c_1e^{\alpha_1x}+c_2e^{\alpha_2x}+\cdots` for constant coefficients `c_n`.<br><br>
+If there are repeated roots, then there is not an arbitrary coefficient, but rather an arbitrary polynomial in `x`. For instance, with characteristic equation `(r-2)^3=0`,
+the solution is given by `y=e^{2x}\left(c_0x^2+c_1x+c_2\right)`.<br>
+TODO: Variation of parameters, method of undetermined coefficients<br><br>
+This method comes about by assuming that the solution to the linear homogeneous differential equation is of the form `y=Ae^{rx}`, and thus `y^{(n)}=y\cdot r^n`.
+Dividing through by `y` (as is permitted because `y` is necessarily nonzero), the characteristic equation is obtained.
+<br><br>
+</div>
+<script src="math.js"></script>
