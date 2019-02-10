@@ -11,15 +11,28 @@
 <h1>Basic Terminology</h1>
 The study of differential equations is very broad, as it essentially describes any system which undergoes change.
 There are a few key words to know when discussing or describing these sorts of equations.<br><br>
+
 A <b>differential equation</b> is one that relates a function to its derivatives. For instance, `y=3y'-2` and `\left(y''\right)^2=\pi` are both differential equations.<br><br>
-A function is <b>homogeneous</b> if and only if multiplying its arguments by a scalar will multiply its value by some power of that scalar.
-In the context of differential equations, this can be taken to mean that there is no constant term. The differential equation is a polynomial in `y` and its derivatives.
-For instance, the equation `y(x-1)=y''` is homogeneous, but `y'=x+y` is not.<br><br>
-A differential equation is <b>linear</b> if the highest power of the unknown function `y` or any of its derivatives is one.<br>
-The equation `y'=3xy+2-x^3` is linear but `y^2=y''+3x` is not.<br><br>
+
+An <b>ordinary differential equation</b> (ODE) is one that involves a function of one independent variable, while a <b>partial differential equation</b> (PDE) involves several independent variables.
+PDEs are generally far more difficult to solve.<br><br>
+
 The <b>order</b> of a differential equation is the highest order of derivation of the unknown function. For instance, `y^{(4)}-y''+y=0` is a fourth-order differential equation
 and `y'=y+x^4` is a first-order differential equation.<br><br>
-TODO: Ordinary, exact, separable, and autonomous differential equations
+
+A differential equation is <b>linear</b> if and only if it can be written as `\sum_{i=0}^{n}a_i(x)y^{(n-i)}=f(x)` for a given order `n` and arbitrary functions `a_i(x)` and `f(x)`.<br>
+The equation `y'=3xy+2-x^3` is linear but `y^2=y''+3x` is not because of the `y^2` term.<br>
+Such an equation is <b>homogeneous</b> if and only if `f(x)=0`. For instance, the equation `y(x-1)=y''` is homogeneous, but `y'=x+y` is not.<br><br>
+
+An alternate use of the term <b>homogeneous</b> in the context of first-order differential equations is when describing those which can be written `\dfrac{\mathrm dy}{\mathrm dx}=F\left(\dfrac yx\right)`
+for some function `F`. This comes from the usage of the term "homogeneous" to describe general functions of two variables `f(x,y)` where `f(\lambda x,\lambda y)=\lambda^nf(x,y)` for some real "degree" `n`. <sup><a href='https://math.stackexchange.com/a/1613491/335369'>[src]</a></sup><br><br>
+The previous definition can be restated to say that a homogeneous first-order differential equation can be written `M(x,y)\,\mathrm dx + N(x,y)\,\mathrm dy=0` for any `M` and `N` that are homogeneous functions of the same degree.
+Note that rearranging gives `\dfrac{\mathrm dy}{\mathrm dx}=\dfrac{M(x,y)}{N(x,y)}`, and the restriction on `M` and `N` gives `\dfrac{\mathrm dy}{\mathrm dx}=\dfrac{M(\lambda x,\lambda y)}{N(\lambda x,\lambda y)}` for any `\lambda`.
+Thus, the right-hand side is unchanged when scaling `x` and `y` by the same amount, and this is only true for a function `F\left(\dfrac yx\right)` where the scaling is exactly cancelled-out by itself.<br><br>
+This general notion of invariance under multiplication of both `x` and `y` can be used to define homogeneity for higher-order differential equations, <sup><a href='https://math.stackexchange.com/q/1363664/335369'>[src]</a></sup>
+and is the reasoning behind the use of the term in regards to linear ODEs (where `Cy` works as a solution to any equation solved by `y`).<br><br>
+
+TODO: Exact, separable, and autonomous differential equations
 <br><br>
 </div>
 <script src="../math.js"></script>
