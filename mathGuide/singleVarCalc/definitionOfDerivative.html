@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Definition of a Derivative</title>
+    <link rel="stylesheet" href="../../CSS/katex.min.css">
+    <script src='../../JS/katex.min.js'></script>
+    <script src="../../JS/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<br>
+<div class='container'>
+<h1>Definition of a Derivative</h1>
+The slope of a straight line is an important concept in traditional algebra, and combining it with the idea of a limit results in one of the most fundamental notions in calculus: the instantaneous slope of a curve, or the <b>derivative</b>. The process of finding a derivative is <b>differentiation</b>, not to be confused with "deriving" a formula.<br><br>
+Visualize any smooth curve given by `y=f(x)`. Clearly, picking any two points on the curve `\left(x_0, f\left(x_0\right)\right)` and `\left(x_1, f\left(x_1\right)\right)` with `x_0 < x_1` will allow a line to be drawn between them, where the slope is `\dfrac{f\left(x_1\right)-f\left(x_0\right)}{x_1-x_0}`.
+Visually, it is clear that slowly moving `x_1` towards `x_0` will begin to approximate the instantaneous slope of the curve at `x=x_0`, and can be formalized as such:<br><br>
+`\displaystyle\boxed{\frac{\mathrm df}{\mathrm dx}=f'(x)=\dot f(x)=D_xf(x)\overset{\mathrm{def}}{=}\lim_{x\to x_0}\frac{f(x)-f\left(x_0\right)}{x-x_0}=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}}`<br><br>
+where<br><br>
+<ul>
+    <li>`\dfrac{\mathrm df}{\mathrm dx}` is known as <b>Leibniz notation</b> (often useful for conceptual understanding)</li><br>
+    <li>`f'(x)` (pronounced "f prime") is <b>prime notation</b> (useful for brevity)</li><br>
+    <li>`\dot f(x)` is <b>dot notation</b> (used primarily in physics, with respect to time derivatives)</li><br>
+    <li>`D_xf(x)` is <b>operator notation</b> (used most commonly when studying differential equations)</li><br>
+</ul>
+Each of these notations is used in different contexts to represent the derivative of `f`, the instantaneous slope of the tangent line to the curve `y=f(x)`.
+<br><br>
+</div>
+<script src="../math.js"></script>
