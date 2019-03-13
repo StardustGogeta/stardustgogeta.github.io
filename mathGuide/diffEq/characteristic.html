@@ -9,16 +9,63 @@
 <br>
 <div class='container'>
 <h1>Characteristic Equations</h1>
-One method of solving linear homogeneous differential equations is by finding the corresponding "characteristic equation" for the given situation.<br>
-For a differential equation written as `\displaystyle\sum_{k=0}^na_ny^{(n)}=0`, the characteristic equation (a polynomial in `r`)
-is given by `\displaystyle\sum_{k=0}^na_nr^{n}=0`, for constant coefficients `a_n`.<br><br>
-Each distinct root of the characteristic equation corresponds to a term in the general solution to the differential equation. For roots `\alpha_0`, `\alpha_1`, `\alpha_2`, etc.,
+One method of solving linear homogeneous differential equations with constant coefficients is by finding the corresponding "characteristic equation."<br>
+For a differential equation written as `\displaystyle\sum_{k=0}^na_ny^{(n)}=0` with constant coefficients `a_n`, the characteristic equation is given by `p(z)=\displaystyle\sum_{k=0}^na_nz^{n}`.<br><br>
+Using the differential operator `D=\mathrm d/\mathrm dx`, we can see that `p(D)=D^n+a_1D^{n-1}+\ldots+a_nI` where `I` is the identity operator.<br>
+With this in mind, we can rewrite the differential equation as `p(D)(y)=0`. Hence, finding a function which "kills" `p(D)` (sends it to zero) is an equivalent task to solving the differential equation.<br>
+Using the "ansatz" (educated guess) of `y=e^{rt}`, we can try evaluating `p(D)(e^{rt})` below.<br><br>
+
+`p(D)(e^{rt})=D^n(e^{rt})+a_1D^{n-1}(e^{rt})+\ldots+a_n(e^{rt})=r^n(e^{rt})+a_1r^{n-1}(e^{rt})+\ldots+a_n(e^{rt})=p(r)\cdot e^{rt}\implies\boxed{p(D)(e^{rt})=p(r)e^{rt}}`<br><br>
+
+This finding is of tremendous importance, and for this reason it is sometimes called the "key identity." <sup><a href="https://www.math.umd.edu/~immortal/MATH246/C2-6-1-KI.pdf">[src]</a></sup>
+(Note that in a sense, one can think of this as stating that `e^{rt}` is an eigenvector of the linear mapping `p(D)` from the set of infinitely differentiable functions to itself.)
+Recall that the task at hand was finding a function which kills `p(D)`. Using the key identity, we know that this is accomplished with the function `y=e^{rt}` whenever `r` is a root of `p`, the characteristic polynomial.<br><br>
+This is a great breakthrough, but there are now some different cases we must consider, depending on the distinctness of the roots and whether they are real or complex.<br><br>
+
+<h2>Distinct Roots</h2>
+When all roots of the characteristic equation are distinct, we can prove easily that this method generates a fundamental set of solutions.<br>
+Let `e^{r_1t}, e^{r_2t},\ldots,e^{r_nt}` be solutions found for an `n`<sup>th</sup>-order differential equation using the key identity.
+<a href="https://math.stackexchange.com/a/1451686/335369">It can be shown</a> that the linear independence of these exponentials
+follows directly from <a href="https://math.stackexchange.com/a/696329/335369">the fact</a> that <a href="https://math.stackexchange.com/a/29374/335369">eigenvectors which correspond to different eigenvalues are linearly independent</a>.
+
+<!-- Side note, I just learned how to do this in Bootstrap. It took a few minutes on Google to figure out that Bootstrap 3 used `well` instead of `card` and Bootstrap 4-alpha used `card-block` instead of `card-body`. -->
+<br><br><div class="card"><div class="card-body">
+    In a sense, one can think of this as stating that `e^{rt}` is an eigenvector of the linear `D` operator with distinct eigenvalue `r`. The fact that different eigenvalues implies
+    linear independence is intuitively obvious. Take eigenvectors `\vec v_1` and `\vec v_2` with eigenvalues `a` and `b`, respectively. If `\vec v_1` and `\vec v_2` were scalar multiples of one another,
+    then applying the transformation to the shared unit vector `\vec u=\dfrac{\vec v_1}{\|\vec v_1\|}=\dfrac{\vec v_2}{\|\vec v_2\|}` should result in `T(u)=a\vec u=b\vec u`.
+    From this, we immediately gather that `a=b`, implied from the fact that the two eigenvectors shared a direction. Thus, using the contrapositive, we find that `a\ne b` implies `v_1` and `v_2` are linearly independent.
+</div></div><br>
+
+Since there are `n` linearly independent solutions to an `n`<sup>th</sup>-order differential equation, they must form a fundamental set.
+Therefore, each distinct root of the characteristic equation corresponds to a term in the general solution to the differential equation. For roots `\alpha_0`, `\alpha_1`, `\alpha_2`, etc.,
 the general solution is `\displaystyle y=c_0e^{\alpha_0x}+c_1e^{\alpha_1x}+c_2e^{\alpha_2x}+\cdots` for constant coefficients `c_n`.<br><br>
-If there are repeated roots, then there is not an arbitrary coefficient, but rather an arbitrary polynomial in `x`. For instance, with characteristic equation `(r-2)^3=0`,
-the solution is given by `y=e^{2x}\left(c_0x^2+c_1x+c_2\right)`.<br>
-TODO: Variation of parameters, method of undetermined coefficients<br><br>
-This method comes about by assuming that the solution to the linear homogeneous differential equation is of the form `y=Ae^{rx}`, and thus `y^{(n)}=y\cdot r^n`.
-Dividing through by `y` (as is permitted because `y` is necessarily nonzero), the characteristic equation is obtained.
+
+<h2>Repeated Roots</h2>
+Let `p(z)=(z-r_1)^{m_1}(z-r_2)^{m_2}\cdots(z-r_i)^{m_i}\cdots(z-r_n)^{m_n}` where we have multiplicities `m\in\mathbb N_+` and at least one `m` is greater than `1`. Without loss of generality, let one such `m` be `m_i`.
+Rewrite the function as `p(z)=a(z)(z-r_i)^{m_i}` for an arbitrary polynomial `a(z)` created by grouping together the other factors. Differentiating, we obtain
+`p'(z)=a'(z)(z-r_i)^{m_i}+m_ia(z)(z-r_i)^{m_i-1}=\left(a'(z)(z-r_i)+m_ia(z)\right)\cdot(z-r_i)^{m_i-1}`. We can conclude that, since `m_i-1>0`, we know `r_i` is still a root of `p'(z)`.<br><br>
+
+This fact will allow us to generate another solution to the differential equation based on the original. Let `L=p(D)` for clarity, so that we can write `L(e^{rt})=p(r)e^{rt}`. Taking the
+partial derivative with respect to `r` on both sides, we find that `L(te^{rt})=p'(r)e^{rt}+tp(r)e^{rt}`. Hence, any repeated root `r` of the characteristic equation `p` will kill both terms
+on the right-hand side, and it is proven that `te^{rt}` is also a solution to the differential equation. In general, using this technique with a root of multiplicity `m` can generate `m` solutions
+in the form `e^{rt},te^{rt},\ldots,t^{m-1}e^{rt}`, and doing this for each root will result in a fundamental set of solutions. In other words, if there are repeated roots, then there is not an arbitrary coefficient, but rather an arbitrary polynomial in `t`.
+For instance, the characteristic equation `p(r)=(r-2)^3(r-5)` provides us with the general solution `y=c_0t^2e^{2t}+c_1te^{2t}+c_2e^{2t}+c_3e^{5t}`, which can be written more simply as `y=e^{2t}\left(c_0t^2+c_1t+c_2\right)+c_3e^{5t}`.<br><br>
+
+<h2>Complex Roots</h2>
+When some or all of the roots of the characteristic equation are complex, we are interested in using these results to recover real-valued solutions to the differential equation. In fact, assuming that
+the coefficients of the differential equation are all real, we can make a number of developments toward this end. Since all coefficients of the characteristic equation are real, we know that its complex roots
+come in conjugate pairs, `r` and `\overline r`.
+
+<br><br><div class="card"><div class="card-body">This fact about the complex conjugate pairs may not be immediately obvious. Note that what we are trying to prove is that `p(z)=0\implies p(\overline z)=0`. Start with `p(z)=z^n+a_1z^{n-1}+\ldots+a_n=0` and
+    take the conjugate of both sides, giving `\overline{z^n+a_1z^{n-1}+\ldots+a_n}=0`. By the properties `\overline{x+y}=\overline x + \overline y` and `\overline{x\cdot y}=\overline x\cdot\overline y`, we can see that `{\overline z}^n+a_1{\overline z}^{n-1}+\ldots+a_n=p(\overline z)=0`,
+    as we set about to prove. <sup><a href="http://mathonline.wikidot.com/pairs-of-complex-roots-for-polynomials-with-real-coefficient">[src]</a></sup>
+</div></div><br>
+
+TODO: FINISH
+
+<br><br><br><br><br><br>
+
+TODO: Variation of parameters, method of undetermined coefficients, fundamental/natural solutions<br><br>
 <br><br>
 </div>
 <script src="../math.js"></script>
