@@ -10,7 +10,9 @@
 <div class='container'>
 <h1>Characteristic Equations</h1>
 One method of solving linear homogeneous differential equations with constant coefficients is by finding the corresponding "characteristic equation."<br>
-For a differential equation written as `\displaystyle\sum_{k=0}^na_ny^{(n)}=0` with constant coefficients `a_n`, the characteristic equation is given by `p(z)=\displaystyle\sum_{k=0}^na_nz^{n}`.<br><br>
+For a differential equation written as `\displaystyle\sum_{k=0}^na_ny^{(n)}=0` with constant coefficients `a_n`,
+the characteristic equation is given by `p(z)=\displaystyle\sum_{k=0}^na_nz^{n}`.<br><br>
+Assume that `a_0=1` for simplicity. If `a_0\ne1`, then divide the entire equation by `a_0` to obtain a new one which satisfies the assumption.<br>
 Using the differential operator `D=\mathrm d/\mathrm dx`, we can see that `p(D)=D^n+a_1D^{n-1}+\ldots+a_nI` where `I` is the identity operator.<br>
 With this in mind, we can rewrite the differential equation as `p(D)(y)=0`. Hence, finding a function which "kills" `p(D)` (sends it to zero) is an equivalent task to solving the differential equation.<br>
 Using the "ansatz" (educated guess) of `y=e^{rt}`, we can try evaluating `p(D)(e^{rt})` below.<br><br>
@@ -41,7 +43,7 @@ Therefore, each distinct root of the characteristic equation corresponds to a te
 the general solution is `\displaystyle y=c_0e^{\alpha_0x}+c_1e^{\alpha_1x}+c_2e^{\alpha_2x}+\cdots` for constant coefficients `c_n`.<br><br>
 
 <h2>Repeated Roots</h2>
-Let `p(z)=(z-r_1)^{m_1}(z-r_2)^{m_2}\cdots(z-r_i)^{m_i}\cdots(z-r_n)^{m_n}` where we have multiplicities `m\in\mathbb N_+` and at least one `m` is greater than `1`. Without loss of generality, let one such `m` be `m_i`.
+Using the fundamental theorem of algebra, let `p(z)=(z-r_1)^{m_1}(z-r_2)^{m_2}\cdots(z-r_i)^{m_i}\cdots(z-r_k)^{m_k}` where we have multiplicities `m\in\mathbb N_+` and at least one `m` is greater than `1`. Without loss of generality, let one such `m` be `m_i`.
 Rewrite the function as `p(z)=a(z)(z-r_i)^{m_i}` for an arbitrary polynomial `a(z)` created by grouping together the other factors. Differentiating, we obtain
 `p'(z)=a'(z)(z-r_i)^{m_i}+m_ia(z)(z-r_i)^{m_i-1}=\left(a'(z)(z-r_i)+m_ia(z)\right)\cdot(z-r_i)^{m_i-1}`. We can conclude that, since `m_i-1>0`, we know `r_i` is still a root of `p'(z)`.<br><br>
 
@@ -52,20 +54,40 @@ in the form `e^{rt},te^{rt},\ldots,t^{m-1}e^{rt}`, and doing this for each root 
 For instance, the characteristic equation `p(r)=(r-2)^3(r-5)` provides us with the general solution `y=c_0t^2e^{2t}+c_1te^{2t}+c_2e^{2t}+c_3e^{5t}`, which can be written more simply as `y=e^{2t}\left(c_0t^2+c_1t+c_2\right)+c_3e^{5t}`.<br><br>
 
 <h2>Complex Roots</h2>
-When some or all of the roots of the characteristic equation are complex, we are interested in using these results to recover real-valued solutions to the differential equation. In fact, assuming that
+When some or all of the roots of the characteristic equation are complex, we are primarily interested in using these results to recover real-valued solutions to the differential equation. In fact, assuming that
 the coefficients of the differential equation are all real, we can make a number of developments toward this end. Since all coefficients of the characteristic equation are real, we know that its complex roots
-come in conjugate pairs, `r` and `\overline r`.
+come in conjugate pairs, `r=a+bi` and `\overline r=a-bi`.
 
-<br><br><div class="card"><div class="card-body">This fact about the complex conjugate pairs may not be immediately obvious. Note that what we are trying to prove is that `p(z)=0\implies p(\overline z)=0`. Start with `p(z)=z^n+a_1z^{n-1}+\ldots+a_n=0` and
+<br><br><div class="card"><div class="card-body">
+    This fact about the complex conjugate pairs may not be immediately obvious. Note that what we are trying to prove is that `p(z)=0\implies p(\overline z)=0`. Start with `p(z)=z^n+a_1z^{n-1}+\ldots+a_n=0` and
     take the conjugate of both sides, giving `\overline{z^n+a_1z^{n-1}+\ldots+a_n}=0`. By the properties `\overline{x+y}=\overline x + \overline y` and `\overline{x\cdot y}=\overline x\cdot\overline y`, we can see that `{\overline z}^n+a_1{\overline z}^{n-1}+\ldots+a_n=p(\overline z)=0`,
     as we set about to prove. <sup><a href="http://mathonline.wikidot.com/pairs-of-complex-roots-for-polynomials-with-real-coefficient">[src]</a></sup>
 </div></div><br>
 
-TODO: FINISH
+We can then state that, by Euler's formula, `e^{\overline rt}=\overline{e^{rt}}`, so if `y=e^{rt}` is a solution, then so is `\overline y`. Using the facts that `\mathrm{Re}(z)=\dfrac{z+\overline z}2` and `\mathrm{Im}(z)=\dfrac{z-\overline z}{2i}`,
+we see that `\mathrm{Re}(y)=e^{at}\cos(bt)` and `\mathrm{Im}(y)=e^{at}\sin(bt)` are each linear combinations of the solutions `y` and `\overline y`, and it can be shown
+that this pair will also be linearly independent for `b\ne0`.
 
-<br><br><br><br><br><br>
+<br><br><div class="card"><div class="card-body">
+    The linear independence of these new solutions can be proven quite easily. Assume the contrary, so that there exist some constants `c_1` and `c_2` such that `c_1e^{at}\cos(bt)+c_2e^{at}\sin(bt)=0` and `c_1` and `c_2` are not both zero.
+    Since `e^{at}\ne0`, we can divide by `e^{at}` to obtain `c_1\cos(bt)+c_2\sin(bt)=0`. When `t=0`, we have `c_1=0`, so `c_2\sin(bt)=0`. Take `b\ne0`, so that at `t=\dfrac{\pi}{2b}` we have `c_2=0` and the
+    two constants `c_1` and `c_2` are both zero, so the two solutions are linearly independent. On the other hand, if `b=0`, then `\mathrm{Im}(y)` simply equals zero, and the two are not linearly independent.
+    However, this corresponds to the case where `r` has no complex part, so this case can effectively be ignored.
+</div></div><br>
+
+<h2>Summary</h2>
+In general, these different cases can be combined into one rule to follow for all roots of the characteristic equation, regardless of the multiplicity or whether it is real or complex.<br><br>
+
+If `r=a+bi\in\mathbb C` is a root with multiplicity `m`, then the differential equation has solutions `e^{at}\cos(bt),te^{at}\cos(bt),\ldots,t^{m-1}e^{at}\cos(bt)` and `e^{at}\sin(bt),te^{at}\sin(bt),\ldots,t^{m-1}e^{at}\sin(bt)`.
+This results in `m` linearly independent solutions for each real root (since the `\sin(bt)` terms are all zero and contribute nothing) and `2m` linearly independent solutions for each pair of complex roots
+of the characteristic equation. (Note that this implies that a linear homogeneous differential equation with constant coefficients of degree `d` will have exactly `d` linearly independent solutions.)
+
+<br><br>
 
 TODO: Variation of parameters, method of undetermined coefficients, fundamental/natural solutions<br><br>
+
+<hr>
+<i>Information heavily drawn from the math department of the University of Maryland at College Park.</i><br>
 <br><br>
 </div>
 <script src="../math.js"></script>
