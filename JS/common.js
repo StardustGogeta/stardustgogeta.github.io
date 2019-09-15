@@ -1,9 +1,10 @@
 function chess(d) {
-	stats = d.match(/\d+/g);
-	document.getElementById('bullet').innerHTML = stats[1];
-	document.getElementById('blitz').innerHTML = stats[2];
-	document.getElementById('rapid').innerHTML = stats[5];
-	document.getElementById('tactics').innerHTML = stats[0];
+	console.log(d);
+	document.getElementById('bullet').innerHTML = d['chess_bullet']['last']['rating'];
+	document.getElementById('blitz').innerHTML = d['chess_blitz']['last']['rating'];
+	document.getElementById('rapid').innerHTML = d['chess_rapid']['last']['rating'];
+	document.getElementById('lessons').innerHTML = d['lessons']['highest']['rating'];
+	document.getElementById('tactics').innerHTML = d['tactics']['highest']['rating'];
 };
 		
 function fetchData() {
@@ -11,8 +12,8 @@ function fetchData() {
 		document.getElementById('karma1').innerHTML = body.data.link_karma;
 		document.getElementById('karma2').innerHTML = body.data.comment_karma;
 	});
-	fetch("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20htmlstring%20where%20url%3D%27https%3A%2F%2Fwww.chess.com%2Fstats%2Flive%2Fstardustgogeta%27%20and%20xpath%3D%22%2F%2Fspan%5B%40class%3D%27user-rating%27%5D%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-	.then(r=>r.text()).then(body => chess(JSON.parse(body).query.results.result));
+	fetch("https://api.chess.com/pub/player/stardustgogeta/stats")
+	.then(r=>r.text()).then(body => chess(JSON.parse(body)));
 	fetch("https://api.stackexchange.com/2.2/users/5732397?site=stackoverflow").then(r=>r.json())
 	.then(body => document.getElementById('SOrep').innerHTML = body.items[0].reputation);
 }
