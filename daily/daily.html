@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/katex.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<script src='../JS/katex.min.js' defer></script>
+		<script src="../JS/auto-render.min.js" defer></script>
+		<script src='daily.js' defer></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+			integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" async></script>
+	</head>
+	<body class="bg-dark">
+		<div id="mathbox" class="container">
+			<br>
+			<h1 class="display-1 text-white">Math Tidbits</h1>
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Finite Geometric Summation</h5>
+					A geometric series is one that has a common ratio which remains constant between terms.<br>
+					The sum of a finite geometric series is `a_1(1-r^n)\over(1-r)`, where `a_1`
+					is the first term, `n` is the number of terms, and `r` is the common ratio.
+					If `r<1` and `n\to\infty`, then `r^n` approaches `0` and the formula approaches `a_1`, thereby creating the infinite sum equation
+					seen previously.
+					<br><br>
+					<center class='prog' data-func="prog2">
+						`\sum_{n=1}`
+						<input type="number" id='in2-3' placeholder='n'
+							style='position:relative; right:2.5em; bottom:1em; width:5em; font-size:.75em; margin-right:-2.5em;'>
+						<input type="number" id='in2-1' placeholder='a&#8321;'>
+						`*\Large(`
+						<input type="number" id='in2-2' placeholder='r'>
+						`{\Large)}^{n-1}`
+						<span id='out2'></span>
+					</center>
+					<script>
+						function prog2() {
+							var a = $('#in2-1').val();
+							var r = $('#in2-2').val();
+							var n = $('#in2-3').val();
+							if (a && r && n) {
+								var val;
+								if (r != 1) {
+									val = +(a * (1 - Math.pow(r,n))/(1 - r)).toFixed(5);
+								} else {
+									val = a * n;
+								}
+								$('#out2').html('` = ' + val + '`');
+							} else {
+								$('#out2').empty();
+							}
+						}
+					</script>
+				</div>
+			</div>
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Infinite Geometric Summation</h5>
+					When a geometric series has a common ratio with an absolute value of less than one, it is said to "converge".<br>
+					The value to which it converges can be calculated using the formula `a_1\over(1-r)`, where `a_1` is the first term and `r` is the common ratio.
+					<br><br>
+					<center class='prog' data-func="prog1">
+						`\sum_{n=1}^\infty`
+						<input type="number" id='in1-1' placeholder='a&#8321;'>
+						`*\Large(`
+						<input type="number" id='in1-2' placeholder='r'>
+						`{\Large)}^{n-1}`
+						<span id='out1'></span>
+					</center>
+					<script>
+						function prog1() {
+							var a = $('#in1-1').val();
+							var r = $('#in1-2').val();
+							if (a && Math.abs(r) < 1) {
+								$('#out1').html('` = ' + +(a / (1 - r)).toFixed(5) +'`');
+							} else {
+								$('#out1').empty();
+							}
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
