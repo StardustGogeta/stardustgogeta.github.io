@@ -4,57 +4,144 @@
 		<title>Stardust - Home</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css">
 		<link rel="stylesheet" type="text/css" href="CSS/front.css">
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	</head>
-	<body style="font-family:Open Sans">
-		<h1>StardustGogeta</h1>
-		<h2><a href="daily/6.html">Math Programs</a>, <a href="mine/mine.html">Minesweeper</a>, <a href="snake/snake.html">Snake</a></h2>
-        <h2><a href="mathGuide/index.html">Work-in-Progress Math Guide</a></h2>
-		<div style="font-size:3.5em;">Welcome to my Github.io page!</div>
-		<div class="select">
-			<div class="click" onclick="fold('scratch')">Scratch</div>
-			<div class="acc" id="scratch">
-				My Scratch profile can be found <a href="https://scratch.mit.edu/users/StardustGogeta/">here</a>.<br>
-				Math tools and other small projects can be found there.
-			</div>
-			<div class="click" onclick="fold('youtube')">YouTube</div>
-			<div id="youtube" class="acc">
-				My channel features a collection of emulated games and other gaming materials. If interested, subscribe
-				<a href='https://www.youtube.com/subscription_center?add_user=stardustgogeta'>here</a>.
-			</div>
-			<div class="click" onclick="fold('reddit')">Reddit</div>
-			<div id="reddit" class="acc">
-				My Reddit account is <a href='http://reddit.com/u/StardustGogeta'>here</a>.<br>
-				My link karma is <span id='karma1'>600</span> and my comment karma is <span id='karma2'>300</span>.
-			</div>
-			<div class="click" onclick="fold('so')">StackOverflow</div>
-			<div id="so" class="acc">
-				My account may be found <a href='http://stackoverflow.com/users/5732397/stardustgogeta'>here</a>.<br>
-				I currently have <span id='SOrep'></span> reputation.
-			</div>
-			<div class="click" onclick="fold('chess')">Chess</div>
-			<div id="chess" class="acc">
-				My Chess.com account is located <a href='https://www.chess.com/member/StardustGogeta'>here</a>.<br>
-				My current Bullet rating is <span id='bullet'></span>.<br>
-				My current Blitz rating is <span id='blitz'></span>.<br>
-				My current Rapid rating is <span id='rapid'></span>.<br>
-				My highest Tactics rating is <span id='lessons'></span>.<br>
-				My highest Tactics rating is <span id='tactics'></span>.<br>
-			</div>
-			<div class="click" onclick="fold('steam')">Steam</div>
-			<div id="steam" class="acc">
-				My Steam profile is <a href='http://steamcommunity.com/id/StardustGogeta'>here</a>.<br>
-				I play Kerbal Space Program, Counter-Strike: Global Offensive, and more.
-			</div>
-			<div class="click" onclick="fold('origin')">Origin</div>
-			<div id="origin" class="acc">
-				My Origin ID is StardustGogeta, though I typically use Steam instead.
-			</div>
-			<div class="click" onclick="fold('github')">GitHub</div>
-			<div id="github" class="acc">
-				My GitHub profile can be found <a href="https://github.com/StardustGogeta">here</a>.
+	<body class="bg-dark text-white">
+		<br>
+		<div class="container">
+			<h1 class="display-1">StardustGogeta's Home Page</h1>
+			<br>
+			<h2>Welcome to my Github.io page!</h2>
+			<br>
+			<center>
+				<h2><a href="daily/6.html">Math Programs</a></h2>
+				<h2><a href="mine/mine.html">Minesweeper</a></h2>
+				<h2><a href="snake/snake.html">Snake</a></h2>
+				<h2><a href="mathGuide/index.html">Work-in-Progress Math Guide</a></h2>
+			</center>
+			
+			<br>
+			<h2>Assorted Online Profiles</h2>
+			<div class="accordion">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body1">
+							Scratch
+						</button>
+					</h2>
+					<div id="collapse-body1" class="accordion-collapse collapse">
+						<div id="scratch" class="accordion-body">
+							My Scratch profile can be found <a href="https://scratch.mit.edu/users/StardustGogeta/">here</a>.<br>
+							Math tools and other small projects can be found there.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body2">
+							YouTube
+						</button>
+					</h2>
+					<div id="collapse-body2" class="accordion-collapse collapse">
+						<div id="youtube" class="accordion-body">
+							My channel features a collection of emulated games and other gaming materials. If interested, subscribe
+							<a href='https://www.youtube.com/subscription_center?add_user=stardustgogeta'>here</a>.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body3">
+							Reddit
+						</button>
+					</h2>
+					<div id="collapse-body3" class="accordion-collapse collapse">
+						<div id="reddit" class="accordion-body">
+							My Reddit account is <a href='http://reddit.com/u/StardustGogeta'>here</a>.<br>
+							My link karma is <span id='karma1'>600</span> and my comment karma is <span id='karma2'>300</span>.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body4">
+							StackOverflow
+						</button>
+					</h2>
+					<div id="collapse-body4" class="accordion-collapse collapse">
+						<div id="so" class="accordion-body">
+							My account may be found <a href='http://stackoverflow.com/users/5732397/stardustgogeta'>here</a>.<br>
+							I currently have <span id='SOrep'></span> reputation.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body5">
+							Chess
+						</button>
+					</h2>
+					<div id="collapse-body5" class="accordion-collapse collapse">
+						<div id="chess" class="accordion-body">
+							My Chess.com account is located <a href='https://www.chess.com/member/StardustGogeta'>here</a>.<br>
+							My current Bullet rating is <span id='bullet'></span>.<br>
+							My current Blitz rating is <span id='blitz'></span>.<br>
+							My current Rapid rating is <span id='rapid'></span>.<br>
+							My highest Tactics rating is <span id='lessons'></span>.<br>
+							My highest Tactics rating is <span id='tactics'></span>.<br>
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body6">
+							Steam
+						</button>
+					</h2>
+					<div id="collapse-body6" class="accordion-collapse collapse">
+						<div id="steam" class="accordion-body">
+							My Steam profile is <a href='http://steamcommunity.com/id/StardustGogeta'>here</a>.<br>
+							I play Kerbal Space Program, Counter-Strike: Global Offensive, and more.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body7">
+							Origin
+						</button>
+					</h2>
+					<div id="collapse-body7" class="accordion-collapse collapse">
+						<div id="origin" class="accordion-body">
+							My Origin ID is StardustGogeta, though I typically use Steam instead.
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-body8">
+							GitHub
+						</button>
+					</h2>
+					<div id="collapse-body8" class="accordion-collapse collapse">
+						<div id="github" class="accordion-body">
+							My GitHub profile can be found <a href="https://github.com/StardustGogeta">here</a>.
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<br>
 	</body>
 	<script onload="fetchData()" src="JS/common.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </html>

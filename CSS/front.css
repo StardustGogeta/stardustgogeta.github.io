@@ -1,33 +1,10 @@
-.select {
-	margin: 5% 10% 10%;
-	font-size: 1.5em;
-}
-
-.acc  {
-	transition: all .25s ease-in-out;
-	height: 0;
-	font-size: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.click {
-	font-size: 2em;
-	border: solid white;
-	border-width: 0.5px 2px 0.5px 2px;
-	box-sizing: border-box;
-	width: 100%;
-	padding: .125em;
-	user-select: none;
-}
-
 #scratch {
 	font-family: Helvetica, sans-serif;
 	background-color: #FFA221;
 }
 
 #youtube {
-	font-family: Roboto, sans-serif;
+	font-family: sans-serif;
 	background-color: #CD201F;
 }
 
