@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Math Tidbits</title>
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/katex.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,13 +16,39 @@
 		<div id="mathbox" class="container">
 			<br>
 			<h1 class="display-1 text-white">Math Tidbits</h1>
+			<input type="text" id="searchBar" class="form-control" placeholder="Type here to filter results..." oninput="search(this)">
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Greatest Common Divisor</h5>
+					The greatest common divisor (GCD) of two natural numbers is the largest natural number that evenly divides each.
+					<br><br>
+					<center class='prog' data-func="prog6">
+						`GCD \Large(`
+						<input type="number" id='in6-1' placeholder='a'>`,`
+						<input type="number" id='in6-2' placeholder='b'>`\Large)`
+						<span id='out6'></span>
+					</center>
+				</div>
+			</div>
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Pythagorean Theorem</h5>
+					The square of a right triangle's hypotenuse is equal to the sum of the squares of its legs.
+					<br><br>
+					<center class='prog' data-func="prog5">
+						<input type="number" id='in5-1' placeholder='a'>`^2+`
+						<input type="number" id='in5-2' placeholder='b'>`^2`
+						<span id='out5'></span>
+					</center>
+				</div>
+			</div>
 			<div class="card my-3 p-2">
 				<div class="card-body">
 					<h5 class="card-title">Radical Simplification</h5>
 					A radical symbol `(\sqrt x)` denotes the opposite of exponentiation.
 					If `x^n=y`, then we may equivalently write `\sqrt[n]y=x`.<br>
 					Additionally, an expression like `\sqrt{4x}` may be simplified to `2\sqrt x` because
-					the square root can be distributed to the factors of 4 and x, individually.<br><br>
+					the square root can be distributed to the factors of `4` and `x`, individually.<br><br>
 					<br><br>
 					<center class='prog' data-func="prog4">
 						<input type="number" id='in4-1' placeholder='y'>
@@ -34,7 +61,7 @@
 			<div class="card my-3 p-2">
 				<div class="card-body">
 					<h5 class="card-title">Quadratic Formula</h5>
-					A quadratic equation is a polynomial of degree 2.<br>
+					A quadratic equation is a polynomial of degree `2`.<br>
 					The zeros of such a polynomial are given by the expression `-b\pm\sqrt{b^2-4ac}\over 2a`.
 					<br><br>
 					<center class='prog' data-func="prog3">
