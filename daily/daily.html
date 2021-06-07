@@ -7,14 +7,44 @@
 			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<script src='../JS/katex.min.js' defer></script>
 		<script src="../JS/auto-render.min.js" defer></script>
-		<script src='daily.js' defer></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-			integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" async></script>
+			integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" defer></script>
+		<script src='daily.js' defer></script>
 	</head>
 	<body class="bg-dark">
 		<div id="mathbox" class="container">
 			<br>
 			<h1 class="display-1 text-white">Math Tidbits</h1>
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Radical Simplification</h5>
+					A radical symbol `(\sqrt x)` symbolizes the opposite of exponentiation.<br>
+					If `x^n=y`, then we may equivalently write `\sqrt[n]y=x`.<br>
+					Additionally, an expression like `\sqrt{4x}` may be simplified to `2\sqrt x` because<br>
+					the square root can be distributed to the factors of 4 and x, individually.<br><br>
+					<br><br>
+					<center class='prog' data-func="prog4">
+						<input type="number" id='in4-1' placeholder='y'>
+						<input type="number" id='in4-2' placeholder='n' style='font-size:.8em;width:3em;height:2.5em;position:relative;top:-1.5em;left:.25em;'>`\Large\sqrt x`
+						<input type="number" id='in4-3' placeholder='x' style="position:relative;top:.2em;right:1.35em;">
+						<span id='out4'></span>
+					</center>
+				</div>
+			</div>
+			<div class="card my-3 p-2">
+				<div class="card-body">
+					<h5 class="card-title">Quadratic Formula</h5>
+					A quadratic equation is a polynomial of degree 2.<br>
+					The zeros of such a polynomial are given by the expression `-b\pm\sqrt{b^2-4ac}\over 2a`.
+					<br><br>
+					<center class='prog' data-func="prog3">
+						<input type="number" id='in3-1' placeholder='a'>`x^2+`
+						<input type="number" id='in3-2' placeholder='b'>`x+`
+						<input type="number" id='in3-3' placeholder='c'><br><br>
+						<span id='out3'></span>
+					</center>
+				</div>
+			</div>
 			<div class="card my-3 p-2">
 				<div class="card-body">
 					<h5 class="card-title">Finite Geometric Summation</h5>
@@ -34,24 +64,6 @@
 						`{\Large)}^{n-1}`
 						<span id='out2'></span>
 					</center>
-					<script>
-						function prog2() {
-							var a = $('#in2-1').val();
-							var r = $('#in2-2').val();
-							var n = $('#in2-3').val();
-							if (a && r && n) {
-								var val;
-								if (r != 1) {
-									val = +(a * (1 - Math.pow(r,n))/(1 - r)).toFixed(5);
-								} else {
-									val = a * n;
-								}
-								$('#out2').html('` = ' + val + '`');
-							} else {
-								$('#out2').empty();
-							}
-						}
-					</script>
 				</div>
 			</div>
 			<div class="card my-3 p-2">
@@ -68,17 +80,6 @@
 						`{\Large)}^{n-1}`
 						<span id='out1'></span>
 					</center>
-					<script>
-						function prog1() {
-							var a = $('#in1-1').val();
-							var r = $('#in1-2').val();
-							if (a && Math.abs(r) < 1) {
-								$('#out1').html('` = ' + +(a / (1 - r)).toFixed(5) +'`');
-							} else {
-								$('#out1').empty();
-							}
-						}
-					</script>
 				</div>
 			</div>
 		</div>
