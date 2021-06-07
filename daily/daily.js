@@ -1,3 +1,10 @@
+function search(e) {
+	var query = e.value;
+	console.log(query);
+	$(`.card:contains(${query})`).show();
+	$(`.card:not(:contains(${query}))`).hide();
+}
+
 function prog1() {
 	var a = +$('#in1-1').val();
 	var r = +$('#in1-2').val();
@@ -94,34 +101,29 @@ function prog4() {
 	}
 }
 
-/*
-function dailyMath(n) {
-	switch (n) {
-		case 5:
-			var a=parseFloat(document.getElementById('in').value);
-			var b=parseFloat(document.getElementById('in2').value);
-			if (a&&b) document.getElementById('out').innerHTML='`= '+(+((a**2+b**2)**.5).toFixed(5))+'^2`';
-			break;
-			
-		case 6:
-			function gcd(a,b,c=Math.min(a,b)) {
-				while (a%c||b%c) c--;
-				return c;
-			}
-			var a=parseFloat(document.getElementById('in').value);
-			var b=parseFloat(document.getElementById('in2').value);
-			if (a&&b) document.getElementById('out').innerHTML='`= '+gcd(a,b)+'`';
-			break;
-	}
-	renderMathInElement(document.getElementById('out'),set);
+function prog5() {
+	var a = +$('#in5-1').val();
+	var b = +$('#in5-2').val();
+	$('#out5').html('`= ' + +Math.hypot(a, b).toFixed(5) + '^2`');
 }
-*/
+
+function prog6() {
+	// Implements Euclidean algorithm for GCD
+	function gcd(a, b) {
+		while (b > 0)
+			[a, b] = [b, a % b];
+		return a;
+	}
+	var a = +$('#in6-1').val();
+	var b = +$('#in6-2').val();
+	$('#out6').html('`= ' + gcd(a, b) + '`');
+}
 
 function daily() {
 	set = {delimiters:[{left:"`", right:"`", display:false}]};
 	renderMathInElement(document.getElementById('mathbox'), set);
 
-	document.querySelectorAll("input").forEach(e => {
+	document.querySelectorAll(".card input").forEach(e => {
 		e.addEventListener("input", () => {
 			window[e.parentElement.dataset.func](); // Call the function stored as data-func in the parent
 			renderMathInElement(e.parentElement, set) // Re-render the math involved
