@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>CMSC250 Handbook</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous" defer></script>
+    <script src="../math.js" defer></script>
+</head>
+<br>
+<div class='container'>
+<h1>Probability and Combinatorics</h1>
+If you've ever played a game of Texas Hold'em poker, you're familiar with the fact that certain hands are worth more than others. 
+For example, <a href="https://www.cardplayer.com/rules-of-poker/hand-rankings">a flush is better than a straight, and a full house is better than either</a>. Why is this the case?<br>
+You may have some intuitive understanding that the more rare a hand is, the higher its rank. Using the ideas discussed here, we will be able to prove this relationship holds.
+<hr>
+
+<!-- TODO: Rule of product and rule of sum, https://brilliant.org/wiki/rule-of-sum-and-rule-of-product-problem-solving/ -->
+
+<h2>Combinations and Permutations</h2>
+Two fundamental concepts in the field of combinatorics are those of <b>combinations</b> and <b>permutations</b>.<br>
+A permutation is an ordering of some collection of elements.
+<!--<sup><a tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Some sources make the distinction that the permutation is not the collection itself but simply the ordering. This makes no practical difference.">[1]</a></sup>-->
+The number of possible permutations of a set of `n` distinct elements is simply given by `n!`, where `!` denotes the factorial function.
+<card class="card my-3">
+    <h5 class="card-header">Derivation</h5>
+    <div class="card-body">
+        Suppose we have a set of `n` distinct elements. We want to create one permutation of this set.<br>
+        We begin by picking the first element of the permutation. There are `n` elements to choose from, so there are `n` ways of doing this.
+        Then, we select the second element of the permutation. There are now only `n-1` elements remaining, so there are `n-1` ways of doing this.
+        We repeat until we have exhausted all elements of the original set, leaving only one choice for the last element in the permutation.
+        By the multiplication principle, there are `n\cdot(n-1)\cdots1=n!` ways of performing this entire task.<br>
+        Every unique sequence of choices results in a new permutation (and every permutation can be constructed in this manner),
+        so there are exactly `n!` possible permutations of the original set.
+    </div>
+</card>
+
+
+
+<!--A combination is simply a set of elements. If I ask for a combination of three Ford car models, you  -->
+<br><br>
