@@ -85,6 +85,15 @@ This is <i>exactly the same</i> as the combinations `\{5, 7, 1\}`, `\{1, 7, 5\}`
 The number of possible combinations of `k` elements from a set of size `n` is given by
 $$C(n, k)={}_nC_k=\binom{n}{k}=\frac{n!}{k!(n-k)!}.$$
 
+<card class="card my-3">
+    <h5 class="card-header">Derivation</h5>
+    <div class="card-body">
+        Suppose we have a set of `n` distinct elements. We want to create a combination of size `k` from this set.<br>
+        Note that from any combination of `k` elements, we can rearrange to form `k!` different `k`-permutations which correspond to it.
+        Since we know that there are `P(n,k)=n!/(n-k)!` total `k`-permutations, there must be `P(n,k)/k!` total `k`-combinations, or
+        $$\frac{n!}{k!(n-k)!}.$$
+    </div>
+</card>
 
 
 <h2>Preliminary Probability Definitions</h2>
