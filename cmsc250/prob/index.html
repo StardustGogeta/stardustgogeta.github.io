@@ -20,6 +20,30 @@ You may have some intuitive understanding that the more rare a hand is, the high
 
 <!-- TODO: Rule of product and rule of sum, https://brilliant.org/wiki/rule-of-sum-and-rule-of-product-problem-solving/ -->
 
+<h2>Addition and Multiplication Principles</h2>
+Combinatorics is all about <i>counting</i>. In particular, we often count the number of ways in which we can perform an action or a set of actions.
+The <a href="https://brilliant.org/wiki/rule-of-sum-and-rule-of-product-problem-solving/">addition and multiplication principles</a> help with this analysis.
+<ul>
+    <li>The <b>addition principle</b> (or "rule of sum") states that given two different actions where there are `x` choices for the first one
+        and `y` choices for the second, there are `x+y` ways of doing either, assuming it is not possible to do both actions simultaneously.</li>
+    <li>The <b>multiplication principle</b> (or "rule of product") states that given two different actions where there are `x` choices for the first one
+        and `y` choices for the second, there are `xy` ways of performing both actions together (in any order).</li>
+</ul>
+
+<card class="card my-3">
+    <h5 class="card-header">Example</h5>
+    <div class="card-body">
+        Consider a person ordering a single meal at an Italian restaurant. The menu has only two items: specialty pizza and salad.
+        The salad consists only of lettuce and dressing, where there are three choices of lettuce and two types of dressing.
+        Meanwhile, the pizza comes in one of four different pre-made varieties. How many total meal options are there?
+        <hr>
+        We have two choices, pizza or salad, so we count the number of possible salads and the number of possible pizzas and add them together by the addition principle.
+        The pizza clearly has only four options, as was given. However, counting the number of salad choices we have requires the multiplication rule.
+        With `3` choices of lettuce and `2` choices of dressing, we have `2\times3=6` ways of picking one of each to form a salad.
+        Thus, we obtain a final answer of `4+6=10` total possible meal selections.
+    </div>
+</card>
+
 <h2>Combinations and Permutations</h2>
 Two fundamental concepts in the field of combinatorics are those of <b>combinations</b> and <b>permutations</b>.<br>
 A permutation is an ordering of some collection of elements.
@@ -38,7 +62,59 @@ The number of possible permutations of a set of `n` distinct elements is simply 
     </div>
 </card>
 
+An ordering of `k` elements from a set of `n` elements is called a `k`-permutation. The number of possible `k`-permutations from a set of size `n` is given by
+$$P(n, k)={}_nP_k=\frac{n!}{(n-k)!}.$$
+
+<card class="card my-3">
+    <h5 class="card-header">Derivation</h5>
+    <div class="card-body">
+        Suppose we have a set of `n` distinct elements. We want to create a permutation of size `k` from this set.<br>
+        We begin by picking the first element of the permutation. There are `n` elements to choose from, so there are `n` ways of doing this.
+        Then, we select the second element of the permutation. There are now only `n-1` elements remaining, so there are `n-1` ways of doing this.
+        We repeat for a total of `k` elements, leaving `n-k` elements unselected.
+        By the multiplication principle, there are `n\cdot(n-1)\cdots(n-k+1)=n!/(n-k)!` ways of performing this entire task.<br><br>
+        Alternatively, we can first notice that there are `n!` permutations of all elements in the original set. By extracting the first `k` elements of
+        any given permutation, we construct a `k`-permutation as desired. However, there are `n-k` elements not selected, and the `k`-permutation is repeated
+        once for each of their `(n-k)!` possible arrangements. Dividing out the number of repetitions yields `n!/(n-k)!` as before.
+    </div>
+</card>
+
+A combination is simply a set of elements without respect to order. For instance, the set `\{1, 5, 7\}` is a combination of three odd numbers.
+This is <i>exactly the same</i> as the combinations `\{5, 7, 1\}`, `\{1, 7, 5\}`, etc., since order does not matter.<br>
+
+The number of possible combinations of `k` elements from a set of size `n` is given by
+$$C(n, k)={}_nC_k=\binom{n}{k}=\frac{n!}{k!(n-k)!}.$$
 
 
-<!--A combination is simply a set of elements. If I ask for a combination of three Ford car models, you  -->
+
+<h2>Preliminary Probability Definitions</h2>
+There are a few ideas we need to define immediately. A lot of this may be familiar or intuitive, but it is still important to discuss.
+A good source of information can be found <a href="https://www.math.tamu.edu/~Janice.Epstein/141/review/WIR10_Prob_1.pdf">here</a>, summarized below.
+Other resources include <a href="https://www.statisticshowto.com/complementary-events/">Statistics How To</a> and <a href="https://mathworld.wolfram.com/Experiment.html">Wolfram MathWorld</a>,
+though the latter can be fairly technical.
+<ul>
+    <li>An <b>experiment</b> is an activity with an observable result. (ex. Rolling a die)</li>
+    <li>An <b>outcome</b> is a possible result of an experiment. (ex. Rolling a 5)</li>
+    <li>The <b>sample space</b> is the set of all possible outcomes of an experiment. (Rolling a 1, 2, 3, 4, 5, or 6)</li>
+    <li>An <b>event</b> is a subset of the sample space. (Rolling a 1, 3, or 5)</li>
+    <ul>
+        <li>An event can include some, none, or all of the events in the sample space.</li>
+    </ul>
+    <li>The <b>probability</b> of an event is the chance that it occurs.</li>
+    <ul>
+        <li>If all outcomes in a sample space have the same probability, then the probability of an event `E` occurring is simply
+            the ratio of the number of outcomes in `E` to the total number of outcomes in the sample space.</li>
+    </ul>
+    <li>Two events are <b>disjoint / mutually exclusive</b> if they share no outcomes.</li>
+    <ul>
+        <li>Alternatively, we might say that the intersection of the two events is empty.</li>
+    </ul>
+    <li>Two events are <b>complementary</b> if they are disjoint and their union is the sample space (so exactly one must occur).</li>
+    <li>Two events `A` and `B` are <b>independent</b> if the probability of `A` does not depend on whether `B` occurs, and vice versa.</li>
+</ul>
+Several of these concepts involve basic set theory like union and intersection, so be sure to understand the meanings of those terms first.
+
+<!-- Probability axioms -->
+<!-- Independent event calculation and intuition -->
+
 <br><br>
