@@ -18,8 +18,6 @@ For example, <a href="https://www.cardplayer.com/rules-of-poker/hand-rankings">a
 You may have some intuitive understanding that the more rare a hand is, the higher its rank. Using the ideas discussed here, we will be able to prove this relationship holds.
 <hr>
 
-<!-- TODO: Rule of product and rule of sum, https://brilliant.org/wiki/rule-of-sum-and-rule-of-product-problem-solving/ -->
-
 <h2>Addition and Multiplication Principles</h2>
 Combinatorics is all about <i>counting</i>. In particular, we often count the number of ways in which we can perform an action or a set of actions.
 The <a href="https://brilliant.org/wiki/rule-of-sum-and-rule-of-product-problem-solving/">addition and multiplication principles</a> help with this analysis.
@@ -95,6 +93,7 @@ $$C(n, k)={}_nC_k=\binom{n}{k}=\frac{n!}{k!(n-k)!}.$$
     </div>
 </card>
 
+<!-- Pascal's triangle, common combinatorial identities like choose 1, choose 0, Pascal identity -->
 
 <h2>Preliminary Probability Definitions</h2>
 There are a few ideas we need to define immediately. A lot of this may be familiar or intuitive, but it is still important to discuss.
@@ -119,11 +118,62 @@ though the latter can be fairly technical.
         <li>Alternatively, we might say that the intersection of the two events is empty.</li>
     </ul>
     <li>Two events are <b>complementary</b> if they are disjoint and their union is the sample space (so exactly one must occur).</li>
+    <ul>
+        <li>If the first event is `A`, then the other is the <b>complement</b> of `A`, often denoted `A^c`.</li>
+    </ul>
     <li>Two events `A` and `B` are <b>independent</b> if the probability of `A` does not depend on whether `B` occurs, and vice versa.</li>
 </ul>
 Several of these concepts involve basic set theory like union and intersection, so be sure to understand the meanings of those terms first.
+<br><br>
 
-<!-- Probability axioms -->
+<h2>Probability Axioms</h2>
+There are <a href="https://www.probabilitycourse.com/chapter1/1_3_2_probability.php">three axioms</a> that form the foundation of probability theory, listed below.
+<ol>
+    <li>For any event `E`, we have `P(E)\ge0`.</li>
+    <li>For a sample space `S`, we have `P(S)=1`.</li>
+    <li>For <i>disjoint</i> events `E_1` through `E_n`, we have `P(E_1\cup E_2\cup\cdots\cup E_n)=P(E_1)+P(E_2)+\cdots+P(E_n)`.</li>
+</ol>
+These facts should be fairly intuitive. For the first one, we know that nothing should ever have a negative chance of occurring.
+For the second, it is clear by definition that if we take the probability that an experiment's outcome is in the entire sample space, we will find this chance to be 100%.
+The third should also be fairly obvious. For example, when rolling a fair die, if the chance of rolling a 1 is `1/6` and the chance of rolling a 2 or 3 is `1/3`,
+then the chance of rolling a 1, 2, or 3 is `1/6+1/3=1/2`.
+<br><br>
+There are many important results that can be derived from these axioms, some of which are given below.
+Proofs are available on <a href="https://en.wikipedia.org/wiki/Probability_axioms#Consequences">the associated Wikipedia page</a>.
+<ul>
+    <li>For events `A` and `B`, if `A\subseteq B`, then `P(A)\le P(B)`.</li>
+    <li>The probability of the empty event `\emptyset` is `P(\emptyset)=0`.</li>
+    <ul>
+        <li>Note that it is still possible for a nonempty event to have zero probability, as well.</li>
+    </ul>
+    <li>For any event `A`, the probability of its complement is `P(A^c)=1-P(A)`.</li>
+    <li>For any event `A`, its probability must satisfy `0\le P(A)\le1`.</li>
+</ul>
+
+One of the most important results is known as the <b>inclusion-exclusion principle</b>, which generalizes the third axiom to non-disjoint events.
+Namely, we see that $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$ for any two events `A` and `B`. In essence, we remove the intersection because it is erroneously double-counted otherwise.
+When we extend to the union of three or more events, the formulas become far more complicated.
+$$\begin{align*}P(A\cup B\cup C)&=P(A)+P(B)+P(C)\\&-P(A\cap B)-P(B\cap C)-P(A\cap C)\\&+P(A\cap B\cap C)\end{align*}$$
+$$\begin{align*}P(A\cup B\cup C\cup D)&=P(A)+P(B)+P(C)+P(D)\\
+&-P(A\cap B)-P(A\cap C)-P(A\cap D)-P(B\cap C)-P(B\cap D)-P(C\cap D)\\
+&+P(A\cap B\cap C)+P(A\cap B\cap D)+P(A\cap C\cap D)+P(B\cap C\cap D)\\
+&-P(A\cap B\cap C\cap D)
+\end{align*}$$
+
+We proceed as before, adding the individual probabilities and then removing the double-counted pairwise intersections. However, this process removes
+the three-way intersections too many times, so we need to add those back. If there are more than three events, then this will result in over-counting of
+the four-way intersections, and we must remove one copy of each of those.<br><br>
+
+Fortunately for us, <a href="https://proofwiki.org/wiki/Inclusion-Exclusion_Principle">it can be proven</a> that this pattern holds in general.
+When applying the formula, simply be careful to include all required terms and to have the correct sign on each.
+The number of terms can be easily checked - the number of `x`-way intersection terms from a set of `y` events is simply given by `\binom yx`.
+Additionally, we see that the total number of terms for a set of `y` events should be `\sum_{i=1}^y\binom yi=2^y-1`.<br><br>
+
+It should be noted that the inclusion-exclusion principle applies equivalently to set cardinality in place of probability since both are
+<a href="https://proofwiki.org/wiki/Definition:Additive_Function_(Measure_Theory)">additive functions</a>
+(i.e., the probabilities and cardinalities of disjoint unions are the sums of the components).
+
+<!-- Conditional probability -->
 <!-- Independent event calculation and intuition -->
 
 <br><br>
