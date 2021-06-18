@@ -184,7 +184,7 @@ It should be noted that the inclusion-exclusion principle applies equivalently t
 <h2>Conditional Probability and Bayes' Theorem</h2>
 A common question to ask is "what is the chance of event `B` occurring given that event `A` occurs?" Questions like these fall into the realm of <b>conditional probability</b>.
 We denote the probability of event `B` given event `A` as `P(B\mid A)`, with a vertical bar in-between. This quantity is defined as follows:
-$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}$$
+$$P(B\mid A)\overset{\text{def}}{=}\frac{P(A\cap B)}{P(A)}.$$
 
 For example, consider rolling a fair six-sided die. Let event `A` be rolling an odd number, and let `B` be rolling a number less than 4.
 It is trivial to find that `P(A)=1/2` and `P(A\cap B)=1/3`, and so we find `P(B\mid A)=(1/3)/(1/2)=2/3` as the chance of rolling less than 4 given that an odd number is rolled.
@@ -220,7 +220,7 @@ and collectively exhaustive events, and each one will contribute a separate term
         &=\frac{P(\text{Defect}\mid D)\cdot P(D)}{P(\text{Defect}\mid A)\cdot P(A) + P(\text{Defect}\mid D)\cdot P(D) + P(\text{Defect}\mid M)\cdot P(M)}\\
         &=\frac{1/200\cdot 1/3}{1/100\cdot 1/2 + 1/200\cdot 1/3 + 1/50\cdot 1/6}\\
         &=\frac{1/600}{3/600 + 1/600 + 2/600}\\
-        P(D\mid\text{Defect})&=\frac16
+        P(D\mid\text{Defect})&=\frac16.
         \end{align*}$$
         Thus, we find that the probability that a defective gizmo selected at random originated from Dynamic Dynamos is `1/6`.
     </div>
@@ -235,7 +235,26 @@ Then, to obtain the probability of some set of leaves, find their individual pro
 <br><br>
 Tree diagrams can be very helpful in certain situations involving dependent events and conditional probability, but their usefulness is limited
 by how rapidly they grow in size. The number of leaves in such a tree grows exponentially with height, and this can very quickly become unwieldy.
+<br><br>
 
-<!-- Independent event calculation and intuition -->
+<h2>Independence of Events</h2>
+Colloquially, two events are independent if they do not impact one another's odds.<br>
+Formally, we say that events `A` and `B` are independent if and only if the following condition holds true:
+$$P(A\cap B)=P(A)\cdot P(B).$$
+
+If `A` and `B` both have nonzero probability, we can use the definition of conditional probability to obtain these two conditions, each equivalent to the one above:
+$$P(A\mid B)=P(A),$$
+$$P(B\mid A)=P(B).$$
+
+Notice that if an event does indeed have zero probability, then it is automatically independent of all other events.<br>
+Furthermore, if two events of nonzero probability are disjoint, then `P(A\cap B)=0` and they cannot be independent.<br>
+Finally, it is possible to find a couple more equivalent conditions (under the assumption `0 < P(A), P(B) < 1`), though these are far less common:
+$$P(A\mid B)=P(A\mid B^c),$$
+$$P(B\mid A)=P(B\mid A^c).$$
+
+This result is not hard to prove and aligns with our intuition about the notion of event independence.
+
+<!-- Application: card games -->
+<!-- Application: disease testing -->
 
 <br><br>
