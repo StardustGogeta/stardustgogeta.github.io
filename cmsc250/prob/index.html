@@ -122,8 +122,14 @@ though the latter can be fairly technical.
         <li>If the first event is `A`, then the other is the <b>complement</b> of `A`, often denoted `A^c`.</li>
     </ul>
     <li>Two events `A` and `B` are <b>independent</b> if the probability of `A` does not depend on whether `B` occurs, and vice versa.</li>
+    <ul>
+        <li>If two events are not independent, then they are said to be <b>dependent</b>.</li>
+    </ul>
 </ul>
 Several of these concepts involve basic set theory like union and intersection, so be sure to understand the meanings of those terms first.
+
+<!-- Link to union / intersection, or discuss here via Venn diagram -->
+
 <br><br>
 
 <h2>Probability Axioms</h2>
@@ -173,7 +179,63 @@ It should be noted that the inclusion-exclusion principle applies equivalently t
 <a href="https://proofwiki.org/wiki/Definition:Additive_Function_(Measure_Theory)">additive functions</a>
 (i.e., the probabilities and cardinalities of disjoint unions are the sums of the components).
 
-<!-- Conditional probability -->
+<br><br>
+
+<h2>Conditional Probability and Bayes' Theorem</h2>
+A common question to ask is "what is the chance of event `B` occurring given that event `A` occurs?" Questions like these fall into the realm of <b>conditional probability</b>.
+We denote the probability of event `B` given event `A` as `P(B\mid A)`, with a vertical bar in-between. This quantity is defined as follows:
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}$$
+
+For example, consider rolling a fair six-sided die. Let event `A` be rolling an odd number, and let `B` be rolling a number less than 4.
+It is trivial to find that `P(A)=1/2` and `P(A\cap B)=1/3`, and so we find `P(B\mid A)=(1/3)/(1/2)=2/3` as the chance of rolling less than 4 given that an odd number is rolled.
+This makes sense—it is either a 1, 3, or 5 with uniform probability, and exactly two of these three options are less than 4.<br><br>
+
+<b>Bayes' theorem</b> (or "law," or "rule") takes this definition and expands it a bit. Since `P(A\cap B)=P(B\cap A)` (by commutativity of set intersection), we can write
+$$P(A\cap B)=P(A)\cdot P(B\mid A)=P(B)\cdot P(A\mid B).$$
+
+Then, we can simply rearrange to obtain that
+$$P(A\mid B)=P(B\mid A)\left(\frac{P(A)}{P(B)}\right).$$
+
+Finally since `P(B)=P(B\cap(A\cup A^c))=P((A\cap B) \cup (A^c\cap B))=P(A\cap B)+P(A^c\cap B)=P(A)\cdot P(B\mid A)+P(A^c)\cdot P(B\mid A^c)`, we can rewrite the fraction as
+$$P(A\mid B)=\frac{P(A)\cdot P(B\mid A)}{P(A)\cdot P(B\mid A)+P(A^c)\cdot P(B\mid A^c)}.$$
+
+Note how the numerator term appears in the denominator as well. Note also that `A` and `A^c` are not particularly special; we simply need a set of mutually exclusive
+and collectively exhaustive events, and each one will contribute a separate term to the denominator.
+
+<card class="card my-3">
+    <h5 class="card-header">Example</h5>
+    <div class="card-body">
+        Consider an engineer ordering parts for his or her latest project. The engineer orders some gizmos from each of three companies: Advanced Applications (A), Dynamic Dynamos (D), and Mechanical Machines (M).
+        One half of all gizmos are ordered from A, one third are from D, and the remaining gizmos are ordered from M.
+        Unfortunately, none of these companies have perfect assembly lines, and each will occasionally produce defective parts.
+        A randomly selected gizmo produced by A has a `1/100` chance of being defective, whereas the chances of gizmos by D or M being defective are `1/200` and `1/50`, respectively.
+        If a gizmo is randomly selected from the set of all gizmos ordered and it is found to be defective, what are the odds it was made by Dynamic Dynamos?
+        <hr>
+        From the problem statement, we know that `P(A)=1/2`, `P(D)=1/3`, and `P(M)=1/6`.
+        Additionally, `P(\text{Defect}\mid A)=1/100`, `P(\text{Defect}\mid D)=1/200`, and `P(\text{Defect}\mid M)=1/50`.
+        Applying Bayes' theorem yields
+        $$\begin{align*}
+        P(D\mid\text{Defect})&=\frac{P(\text{Defect}\cap D)}{P(\text{Defect})}\\
+        &=\frac{P(\text{Defect}\cap D)}{P(\text{Defect}\cap A)+P(\text{Defect}\cap D)+P(\text{Defect}\cap M)}\\
+        &=\frac{P(\text{Defect}\mid D)\cdot P(D)}{P(\text{Defect}\mid A)\cdot P(A) + P(\text{Defect}\mid D)\cdot P(D) + P(\text{Defect}\mid M)\cdot P(M)}\\
+        &=\frac{1/200\cdot 1/3}{1/100\cdot 1/2 + 1/200\cdot 1/3 + 1/50\cdot 1/6}\\
+        &=\frac{1/600}{3/600 + 1/600 + 2/600}\\
+        P(D\mid\text{Defect})&=\frac16
+        \end{align*}$$
+        Thus, we find that the probability that a defective gizmo selected at random originated from Dynamic Dynamos is `1/6`.
+    </div>
+</card>
+
+A more visual way of representing conditional probability is with <b>probability trees</b>.
+A <a href="https://www.mathsisfun.com/data/probability-tree-diagrams.html">probability tree</a> is a tree diagram read from left to right where
+nodes represent experiments and branches represent disjoint outcomes/events that might occur, each labeled with their respective probabilities.
+In order to find the probability of a certain leaf, simply multiply the conditional probabilities along the edges leading from the root to that leaf.
+Then, to obtain the probability of some set of leaves, find their individual probabilities and add them together.
+(To verify that a tree diagram has been correctly constructed, the sum of all leaf probabilities should always equal one.)
+<br><br>
+Tree diagrams can be very helpful in certain situations involving dependent events and conditional probability, but their usefulness is limited
+by how rapidly they grow in size. The number of leaves in such a tree grows exponentially with height, and this can very quickly become unwieldy.
+
 <!-- Independent event calculation and intuition -->
 
 <br><br>
