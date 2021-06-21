@@ -253,6 +253,43 @@ $$P(A\mid B)=P(A\mid B^c),$$
 $$P(B\mid A)=P(B\mid A^c).$$
 
 This result is not hard to prove and aligns with our intuition about the notion of event independence.
+<br><br>
+
+<h2>Application: Card Games</h2>
+One of the best examples of probability in action is playing card games. Take, for example, the game of Texas Hold'em poker.
+If you're not familiar with the game, you can read the rules <a href="https://bicyclecards.com/how-to-play/texas-holdem-poker/">here</a>.
+In poker, <i>hands</i> consist of five cards each, taken from a standard deck of fifty-two. Each card has a <i>suit</i> (hearts, diamonds, spades, clubs)
+and a <i>rank</i> (in ascending order, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace). Depending on the exact suit and rank composition of the cards
+in one's hand, it will be considered better or worse than (or in rare cases, equal to) another hand. For more information on hand evaluation and ranking,
+see <a href="https://www.cardplayer.com/rules-of-poker/hand-rankings">here</a> and <a href="https://automaticpoker.com/poker-basics/what-happens-if-you-have-the-same-hand-in-poker/">here</a>.
+<br><br>
+Why are certain hands worth more than others? It is because these hands are provably less common!
+We can show this using the probability techniques developed above.
+Here's the ordered list of poker hands:
+<ol>
+    <li>Royal Flush</li>
+    <li>Straight Flush</li>
+    <li>Four of a Kind</li>
+    <li>Full House</li>
+    <li>Flush</li>
+    <li>Straight</li>
+    <li>Three of a Kind</li>
+    <li>Two Pair</li>
+    <li>Pair</li>
+    <li>High Card</li>
+</ol>
+Let's derive the probabilities of each of these hands occurring when five cards are dealt at random from a standard deck.
+<br><br>
+A <i>royal flush</i> occurs when we have the ten, jack, queen, king, and ace of one suit. The ranks are prescribed by definition, but we have four choices for the
+suit, so there are four unique royal flushes that are possible. Since there are `\binom{52}{5}` possible hands in total, each with the same chance of occurring,
+we obtain a probability of `4/\binom{52}{5}\approx0.000154\%` for dealing a royal flush.
+<br><br>
+A <i>straight flush</i> occurs when we have five cards in a row of the same suit (and we do not have a royal flush).
+Notice that each straight flush is uniquely identified by its lowest card.
+(There is only one possibility for a straight flush that starts with the Five of Hearts, for example.) Now, how many possibilities are there for the lowest card?
+There have to be four cards after it in sequence, meaning that 9-10-J-Q-K is the highest we can go (since we do not count royal flushes),
+and A-2-3-4-5 is the lowest we can go. Since the lowest card ranges from an ace to a nine in any of the four suits, we have exactly 36 possibilities, and as a result, we know there are 36 unique straight flushes.
+We proceed to obtain a probability of `36/\binom{52}{5}\approx0.00139\%` for being dealt a straight flush.
 
 <!-- Application: card games -->
 <!-- Application: disease testing -->
