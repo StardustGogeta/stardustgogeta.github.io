@@ -275,21 +275,70 @@ Here's the ordered list of poker hands:
     <li>Straight</li>
     <li>Three of a Kind</li>
     <li>Two Pair</li>
-    <li>Pair</li>
-    <li>High Card</li>
+    <li>One Pair</li>
+    <li>No Pair / High Card</li>
 </ol>
 Let's derive the probabilities of each of these hands occurring when five cards are dealt at random from a standard deck.
 <br><br>
-A <i>royal flush</i> occurs when we have the ten, jack, queen, king, and ace of one suit. The ranks are prescribed by definition, but we have four choices for the
+A <i>royal flush</i> occurs when we have the ten, jack, queen, king, and ace of a given suit. The ranks are prescribed by definition, but we have four choices for the
 suit, so there are four unique royal flushes that are possible. Since there are `\binom{52}{5}` possible hands in total, each with the same chance of occurring,
 we obtain a probability of `4/\binom{52}{5}\approx0.000154\%` for dealing a royal flush.
 <br><br>
-A <i>straight flush</i> occurs when we have five cards in a row of the same suit (and we do not have a royal flush).
-Notice that each straight flush is uniquely identified by its lowest card.
-(There is only one possibility for a straight flush that starts with the Five of Hearts, for example.) Now, how many possibilities are there for the lowest card?
+A <i>straight flush</i> occurs when we have five cards in a row of the same suit, excluding a royal flush.
+Notice that each straight flush can be uniquely identified by its lowest card.
+(There is only one possibility for a straight flush that starts with the Five of Hearts, for example.) Now, how many possibilities are there for this lowest card?
 There have to be four cards after it in sequence, meaning that 9-10-J-Q-K is the highest we can go (since we do not count royal flushes),
 and A-2-3-4-5 is the lowest we can go. Since the lowest card ranges from an ace to a nine in any of the four suits, we have exactly 36 possibilities, and as a result, we know there are 36 unique straight flushes.
 We proceed to obtain a probability of `36/\binom{52}{5}\approx0.00139\%` for being dealt a straight flush.
+<br><br>
+A <i>four of a kind</i> is when we have all four cards of a given rank (along with any other card as the fifth).
+We have 13 ways to pick the rank for which we have the four of a kind, followed by 48 ways to pick the remaining card.
+Thus, the probability of a four of a kind is given by `13\cdot48/\binom{52}{5}\approx0.02401\%`.
+<br><br>
+A <i>full house</i> occurs if we have three cards of one rank (let's call it `A`) and two cards of another rank (let's call it `B`).
+We have `P(13,2)=13\cdot12` ways to choose ranks `A` and `B`. Next, we pick the suits.
+There are three suits for rank `A`, so we have `\binom43=4` ways of picking them.
+Likewise, we have `\binom42=6` ways of picking the two suits for the cards of rank `B`.
+Consequently, we find a probability of `13\cdot12\cdot4\cdot6/\binom{52}{5}\approx0.1441\%`.
+<br><br>
+A <i>flush</i> occurs if we have five cards of the same suit.
+We have 4 ways to pick the suit and `\binom{13}5` ways to pick five ranks within that suit.
+However, we have to guarantee that this is not a straight or royal flush as well.
+There are ten total possibilities for a straight/royal flush within a given suit, so we simply subtract this from our count.
+In the end, we have a probability of `4\cdot\left(\binom{13}5-10\right)/\binom{52}{5}\approx0.1965\%`.
+<br><br>
+A <i>straight</i> occurs whenever we have five cards in a row (and do not also have a royal straight or straight flush).
+There are 10 ways to pick the ranks, but unlike straight flushes, we now have 4 choices for each card's suit.
+This leads to a total of `10\cdot4^5` possibilities, before subtracting the 40 royal and straight flushes.
+a probability of `\left(10\cdot4^5-40\right)/\binom{52}{5}\approx0.3925\%`.
+<br><br>
+A <i>three of a kind</i> occurs whenever we have three cards of a single rank (which we will call `A`) and two cards of different ranks (`B` and `C`).
+There are 13 ranks to choose from for `A`. Then, we have `\binom{12}2` ways to pick ranks `B` and `C` afterwards.
+(Note that unlike the full house before, there is a symmetry here.
+Ranks `B` and `C` each contribute the same number of cards, one, so the order in which they are chosen does not matter.
+Since `A` is associated with a different number of cards, namely three, it has to be chosen separately from `B` and `C`.)
+There are `\binom43=4` ways to pick the suits for rank `A` and `4^2` ways to pick the suits for `B` and `C`.
+This yields a probability of `13\cdot\binom{12}2\cdot4^3/\binom{52}{5}\approx2.1128\%`.
+<br><br>
+A <i>two pair</i> happens whenever we have two cards of one rank (`A`), two cards of another rank (`B`), and one card of a third rank (`C`).
+By the same symmetry argument as before, we pick ranks for `A` and `B` together, and we have `\binom{13}2` ways of doing so.
+There are 11 choices left for rank `C` afterwards.
+There are `\binom42=6` ways each to pick the suits for ranks `A` and `B`, and there are 4 ways to pick the suit for `C`.
+This yields a probability of `\binom{13}2\cdot11\cdot6^2\cdot4/\binom{52}{5}\approx4.7539\%`.
+<br><br>
+A <i>one pair</i> happens whenever we have two cards of one rank (`A`) and one card each from three other ranks (`B`, `C`, and `D`).
+There are 13 choices for rank `A`, after which there are `\binom{12}3` choices for the other ranks.
+There are `\binom42=6` ways to pick the suits for rank `A` and there are 4 ways to pick the suits for each of the other three cards.
+This generates a probability of `13\cdot\binom{12}3\cdot6\cdot4^3/\binom{52}{5}\approx42.2569\%`.
+<br><br>
+Finally, it comes down to the <i>high card</i> if and only if none of the other types of hands occur.
+Adding the probabilities above gives a total chance of `49.8823\%`, so the chance of none of those is about `50.1177\%`.
+Alternatively, we can directly calculate the odds. There are `\binom{13}5-10` ways to pick the five distinct ranks (and not form a straight),
+and there are `4^5-4` ways to pick the five suits (while not giving a flush).
+Together, we get a probability of `\left(\binom{13}5-10\right)\left(4^5-4\right)/\binom{52}{5}\approx50.1177\%`, as expected.
+<br><br>
+All in all, we see that the <a href="https://en.wikipedia.org/wiki/Poker_probability">probabilities of the poker hands</a> are ordered exactly as we predicted.
+Rarer types of hands are worth more, without exception.
 
 <!-- Application: card games -->
 <!-- Application: disease testing -->
