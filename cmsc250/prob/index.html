@@ -339,8 +339,90 @@ Together, we get a probability of `\left(\binom{13}5-10\right)\left(4^5-4\right)
 <br><br>
 All in all, we see that the <a href="https://en.wikipedia.org/wiki/Poker_probability">probabilities of the poker hands</a> are ordered exactly as we predicted.
 Rarer types of hands are worth more, without exception.
+<br><br>
+How about some non-poker cards questions?
 
-<!-- Application: card games -->
+<card class="card my-3">
+    <h5 class="card-header">Problem</h5>
+    <div class="card-body">
+        Suppose I perfectly shuffle a standard deck (so that any permutation of the cards is equally likely).
+        What are the odds that the top half of the deck contains the same set of cards before and after shuffling?
+        <hr>
+        This is a simple counting problem.
+        If the top and bottom halves of the deck remain the same before and after shuffling, then that means there are `26!` ways to rearrange each half,
+        so there are `(26!)^2` permutations of the deck that satisfy the condition.
+        Meanwhile, there are `52!` total distinct permutations of the deck that are possible.
+        If each rearrangement is equally likely, the probability that the condition is satisfied is `(26!)^2/52!`.
+    </div>
+</card>
+
+<card class="card my-3">
+    <h5 class="card-header">Problem</h5>
+    <div class="card-body">
+        Suppose I perfectly shuffle a standard deck and deal out a game of Klondike solitaire as shown. What is the probability that
+        all four aces will be face-up at the very start of the game, before any moves are made?
+        <center style="overflow-y:hidden; height: 240px">
+            <img style="margin-top: -25px;" src="https://pbs.twimg.com/media/E1wyRfCXsAUXSYA.jpg" height="320"/>
+        </center>
+        <hr>
+        This is just another routine application of the probability principles we have reviewed.
+        There are seven cards face-up at the beginning, of which four are aces and three are non-aces.
+        There are `\binom{48}3` ways to select the three non-aces from the deck, and there are `7!` ways to permute these seven cards together.
+        Then, there are `45!` ways to permute the cards that begin face-down or in the draw pile.
+        On the other hand, we have `52!` total rearrangements of the deck that are possible.
+        Therefore, the probability is `\frac{\binom{48}3\cdot7!\cdot45!}{52!}=\frac1{7735}`.
+        <br><br>
+        Alternatively, there are `\binom74` ways to pick which of the seven face-up positions will be occupied by aces,
+        `P(4,4)=4!` ways to arrange the aces, and `P(48,3)=48\cdot47\cdot46` ways to select the non-aces in order.
+        Then, since there are `P(52,7)` ways to pick the face-up cards in order, we get a probability of
+        `\frac{\binom74\cdot4!\cdot48\cdot47\cdot46}{P(52,7)}=\frac1{7735}` as before.
+    </div>
+</card>
+
+<card class="card my-3">
+    <h5 class="card-header">Problem</h5>
+    <div class="card-body">
+        Suppose I deal out a game of Klondike solitaire as in the previous example.
+        However, I can't make any moves with what I see, so I reshuffle and lay out the cards again.
+        What is the probability that the exact same set of seven cards is face-up (ignoring order)?
+        <hr>
+        There are `7!` ways to permute the seven face-up cards and `45!` ways to permute the rest.
+        Since there are `52!` possible (equally likely) orderings of the cards in total,
+        this yields a probability of `\frac{7!\cdot45!}{52!}=\binom{52}{7}^{-1}=\frac1{133,784,560}`.
+        <br><br>
+        Alternatively, there are `\binom{52}7` ways to pick the seven face-up cards from the deck while ignoring order.
+        There is only one of these that will match the face-up set from before the reshuffle, so the chance that that
+        will occue is `\binom{52}{7}^{-1}` as above.
+    </div>
+</card>
+
+<h2>Application: Disease Testing</h2>
+Another common application of probability (and Bayes' theorem, in particular) is disease testing.
+<br><br>
+When there is <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic">an illness spreading throughout the population</a> that
+<a href="https://en.wikipedia.org/wiki/Epidemiology_of_HIV/AIDS">may not present clear symptoms</a>,
+it is immensely helpful to have a way to test whether an individual has the disease.
+Unfortunately, these kinds of tests are not perfect. Sometimes, an infected individual will be marked disease-free, or vice versa.
+To describe these events, here are some terms to know:
+<ul>
+    <li><b>True Positive</b>: Individual has the disease, test indicates they have the disease</li>
+    <li><b>False Positive</b>: Individual does not have the disease, test indicates they have the disease</li>
+    <li><b>True Negative</b>: Individual does not have the disease, test indicates they do not have the disease</li>
+    <li><b>False Negative</b>: Individual has the disease, test indicates they do not have the disease</li>
+</ul>
+In short, for each of the above, "true" / "false" tells whether the test result is correct, and "positive" / "negative" simply tells the result of the test.
+<br><br>
+Although we don't know exactly which tests have incorrect results, we can find the proportion of tests
+that will tend to be correct or incorrect under varying circumstances.
+That leads us to some more important terms to know:
+<ul>
+    <li><b>Sensitivity / True Positive Rate (TPR)</b>: Individual has the disease, test indicates they have the disease</li>
+    <li><b>False Positive Rate (FPR)</b>: Individual does not have the disease, test indicates they have the disease</li>
+    <li><b>Specificity / True Negative Rate (TNR)</b>: Individual does not have the disease, test indicates they do not have the disease</li>
+    <li><b>False Negative Rate (FNR)</b>: Individual has the disease, test indicates they do not have the disease</li>
+</ul>
+In addition, we know the <b>prevalence</b> is the proportion of the general population that is infected with the disease.
+
 <!-- Application: disease testing -->
 
 <br><br>
