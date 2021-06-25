@@ -343,7 +343,7 @@ Rarer types of hands are worth more, without exception.
 How about some non-poker cards questions?
 
 <card class="card my-3">
-    <h5 class="card-header">Problem</h5>
+    <h5 class="card-header">Example</h5>
     <div class="card-body">
         Suppose I perfectly shuffle a standard deck (so that any permutation of the cards is equally likely).
         What are the odds that the top half of the deck contains the same set of cards before and after shuffling?
@@ -357,7 +357,7 @@ How about some non-poker cards questions?
 </card>
 
 <card class="card my-3">
-    <h5 class="card-header">Problem</h5>
+    <h5 class="card-header">Example</h5>
     <div class="card-body">
         Suppose I perfectly shuffle a standard deck and deal out a game of Klondike solitaire as shown. What is the probability that
         all four aces will be face-up at the very start of the game, before any moves are made?
@@ -380,7 +380,7 @@ How about some non-poker cards questions?
 </card>
 
 <card class="card my-3">
-    <h5 class="card-header">Problem</h5>
+    <h5 class="card-header">Example</h5>
     <div class="card-body">
         Suppose I deal out a game of Klondike solitaire as in the previous example.
         However, I can't make any moves with what I see, so I reshuffle and lay out the cards again.
@@ -416,13 +416,45 @@ Although we don't know exactly which tests have incorrect results, we can find t
 that will tend to be correct or incorrect under varying circumstances.
 That leads us to some more important terms to know:
 <ul>
-    <li><b>Sensitivity / True Positive Rate (TPR)</b>: Individual has the disease, test indicates they have the disease</li>
-    <li><b>False Positive Rate (FPR)</b>: Individual does not have the disease, test indicates they have the disease</li>
-    <li><b>Specificity / True Negative Rate (TNR)</b>: Individual does not have the disease, test indicates they do not have the disease</li>
-    <li><b>False Negative Rate (FNR)</b>: Individual has the disease, test indicates they do not have the disease</li>
+    <li><b>Sensitivity / True Positive Rate (TPR)</b>: The proportion of infected individuals correctly marked as having the disease</li>
+    <li><b>False Positive Rate (FPR)</b>: The proportion of uninfected individuals incorrectly marked as having the disease</li>
+    <li><b>Specificity / True Negative Rate (TNR)</b>: The proportion of uninfected individuals correctly marked as not having the disease</li>
+    <li><b>False Negative Rate (FNR)</b>: The proportion of infected individuals incorrectly marked as not having the disease</li>
 </ul>
-In addition, we know the <b>prevalence</b> is the proportion of the general population that is infected with the disease.
+These are all characteristics of the test itself, independent of the number of individuals tested.
+<br><br>
+On the other hand, there are some terms that do depend on the population or the number of individuals tested.
+<ul>
+    <li><b>Prevalence</b>: The proportion of the general population that is infected with the disease</li>
+    <li><b>Precision / Positive Predictive Value (PPV)</b>: The proportion of those marked as having the disease who are actually infected</li>
+    <li><b>Negative Predictive Value (NPV)</b>: The proportion of those marked as not having the disease who are actually not infected</li>
+    <li><b>False Discovery Rate (FDR)</b>: The proportion of those marked as having the disease who are actually not infected</li>
+    <li><b>False Omission Rate (FOR)</b>: The proportion of those marked as not having the disease who are actually infected</li>
+</ul>
+Note that if `D+` and `D-` indicate disease-positive and disease-negative while `T+` and `T-` indicate positive and negative test results, respectively,
+then TPR is `P(T+\mid D+)`, FPR is `P(T+\mid D-)`, TNR is `P(T-\mid D-)`, and FNR is `P(T-\mid D+)`. Meanwhile, prevalence is `P(D+)`,
+PPV is `P(D+\mid T+)`, NPV is `P(D-\mid T-)`, FDR is `P(D-\mid T+)`, and FOR is `P(D+\mid T-)`.
+<br><br>
+Since a test returns either positive or negative in any case, we can see that `\text{TPR}+\text{FNR}=1` and `\text{FPR}+\text{TNR}=1`.
+Additionally, since any individual either has the disease or does not, we have that `\text{PPV}+\text{FDR}=1` and `\text{NPV}+\text{FOR}=1`.
+<br><br>
+One incredibly useful tool for keeping track of the meanings of these terms is known as a <b>confusion matrix</b>.
 
-<!-- Application: disease testing -->
+<!-- Confusion matrix -->
+
+<card class="card my-3">
+    <h5 class="card-header">Example</h5>
+    <div class="card-body">
+        Suppose there is a disease going around, and scientists have devised a test to determine whether a given individual is infected.
+        The test has a false-positive rate of 0.05 and a false-negative rate of 0.01. Only five percent of the general population has the disease.
+        Given that a certain person receives a positive test result, what is the likelihood that they truly are infected?
+        <hr>
+        We will first individually calculate the probabilities of a true positive and a false positive when testing a random individual from the general population.
+        <br><br>
+        Since the FPR is 0.05 and the prevalence is 0.05, we see that the probability of a false positive is `P(T+\mid D-)\cdot(1-P(D+))=0.05\cdot0.95=0.0475`.
+        Then, the FNR is 0.01 and the prevalence is 0.05, so we find the probability of a true positive is `(1-P(T-\mid D+))\cdot P(D+)=0.99\cdot0.05=0.0495`.
+        Thus, the we find the answer to be `P(D+\mid T+)=\frac{P(T+\cap D+)}{P(T+)}=\frac{P(T+\cap D+)}{P(T+\cap D+)+P(T+\cap D-)}=\frac{0.0495}{0.0495+0.0475}\approx0.5103`, or `51.03\%`.
+    </div>
+</card>
 
 <br><br>
