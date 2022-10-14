@@ -18,17 +18,22 @@ colors = ['blue','green','red','orange','purple','brown','gray','pink'];
 gridW = 20; boxW = 25; // Set box dimensions and grid size
 gridH = 20; boxH = 25;
 sp = 2;
-covered = gridW * gridH;
+
 bombChance = .1;
-bombs = Array(gridW*gridH).fill(0);
+
+// Create bomb boolean array
+bombs = [...Array(gridW)].map(_=>Array(gridH).fill(0));
+
 bombCount = 0;
 while (bombCount < gridW * gridH * bombChance) {
-	var select = Math.ceil(gridW * gridH * Math.random());
-	if (bombs[select] == 0) {
-		bombs[select] = 1;
+	var selectX = Math.floor(gridW * Math.random());
+	var selectY = Math.floor(gridH * Math.random());
+	if (bombs[selectX][selectY] == 0) {
+		bombs[selectX][selectY] = 1;
 		bombCount++;
 	}
 }
+
 zones = new Array(gridW); // Create array of boxes
 for (i=0; i<gridW; i++) {
 	zones[i] = new Array(gridH);
@@ -38,23 +43,31 @@ c.width = gridW * boxW + (sp * (gridW - 1));
 c.height = gridH * boxH + (sp * (gridH - 1));
 var ctx = c.getContext("2d");
 
-function getNearbyBombs(x) { // Find number of nearby bombs
-	var a = x % gridW;
-	var b = Math.floor(x / gridW);
-	var near = (a>0?bombs[x-1]+(b>0?bombs[x-1-gridW]:0)+(b<gridH-1?bombs[x-1+gridW]:0):0) +
-			(a<(gridW-1)?bombs[x+1]+(b>0?bombs[x+1-gridW]:0)+(b<gridH-1?bombs[x+1+gridW]:0):0) +
-			(b>0?bombs[x-gridW]:0) +
-			(b<gridH-1?bombs[x+gridW]:0);
+function getNearbyBombs(a, b) { // Find number of nearby bombs
+	var near = (a > 0 ? bombs[a-1][b] + (b > 0 ? bombs[a-1][b-1] : 0) + (b < gridH-1 ? bombs[a-1][b+1] : 0) : 0)
+		+ (a < gridW-1 ? bombs[a+1][b] + (b > 0 ? bombs[a+1][b-1] : 0) + (b < gridH-1 ? bombs[a+1][b+1] : 0) : 0)
+		+ (b > 0 ? bombs[a][b-1] : 0) + (b < gridH-1 ? bombs[a][b+1] : 0);
 	return near;
 }
 
-function component(a, b, color, x, y) { // Create and handle individual boxes
-    this.x = x;
-    this.y = y;
+function checkGameWin() {
+	for (var a = 0; a < gridW; a++) {
+		for (var b = 0; b < gridH; b++) {
+			if (!bombs[a][b] && zones[a][b].unclicked) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+function component(a, b, color) { // Create and handle individual boxes
+    this.x = (sp + boxW) * a;
+    this.y = (sp + boxH) * b;
 	this.a = a;
 	this.b = b;
-	this.bomb = bombs[a+(b*gridW)];
-	this.bCN = getNearbyBombs(a+(b*gridW)); // Find bomb count nearby
+	this.bomb = bombs[a][b];
+	this.bCN = getNearbyBombs(a, b); // Find bomb count nearby
 	this.color = color;
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, boxW, boxH);
@@ -106,11 +119,7 @@ function component(a, b, color, x, y) { // Create and handle individual boxes
 					if (b > 0) zones[a][b-1].clicked();
 					if (b < gridH-1) zones[a][b+1].clicked();
 				}
-				if (bombs.every((val,i) => { // Check if game complete
-					var a = i % gridW;
-					var b = Math.floor(i / gridW);
-					return val || !zones[a][b].unclicked;
-				})) {
+				if (checkGameWin()) {
 					over = 2;
 					setTimeout(()=>{
 						ctx.font = "bold "+Math.min(boxW*3,boxH*3)+"px Arial";
@@ -124,22 +133,22 @@ function component(a, b, color, x, y) { // Create and handle individual boxes
 	}
 };
 
-for (var a=0; a<gridW; a++) { // Create all boxes at once
-	for (var b=0; b<gridH; b++) {
-		zones[a][b] = new component(a,b,cellColor,(sp+boxW)*a,(sp+boxH)*b,Math.random()<=bombChance);
+for (var a = 0; a < gridW; a++) { // Create all boxes at once
+	for (var b = 0; b < gridH; b++) {
+		zones[a][b] = new component(a, b, cellColor);
 	}
 }
 console.log("Boxes prepared.");
 
 c.onclick = function(e) { // Handle clicks on boxes
-	a = Math.floor(e.offsetX/(boxW+sp));
-	b = Math.floor(e.offsetY/(boxH+sp));
+	a = Math.floor(e.offsetX / (boxW+sp));
+	b = Math.floor(e.offsetY / (boxH+sp));
 	zones[a][b].clicked();
 }
 
 c.oncontextmenu = function(e) { // Handle right-clicks on boxes
-	a = Math.floor(e.offsetX/(boxW+sp));
-	b = Math.floor(e.offsetY/(boxH+sp));
+	a = Math.floor(e.offsetX / (boxW+sp));
+	b = Math.floor(e.offsetY / (boxH+sp));
 	zones[a][b].flag();
 	return false;
 }
