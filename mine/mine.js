@@ -2,6 +2,10 @@ var context = new window.AudioContext(); // Set up audio system
 var osc = context.createOscillator();
 osc.connect(context.destination);
 osc.start(); context.suspend();
+
+g = context.createGain();
+g.gain.value = 0.01; // This should theoretically make the sound quieter
+
 function playSound(freq,type='square') {
 	osc.type = type; // Sine, square, sawtooth, triangle
 	osc.frequency.value = freq; // Hz
@@ -44,7 +48,7 @@ function getNearbyBombs(x) { // Find number of nearby bombs
 	return near;
 }
 
-function component(a, b, color, x, y, bomb) { // Create and handle individual boxes
+function component(a, b, color, x, y) { // Create and handle individual boxes
     this.x = x;
     this.y = y;
 	this.a = a;
@@ -128,14 +132,14 @@ for (var a=0; a<gridW; a++) { // Create all boxes at once
 console.log("Boxes prepared.");
 
 c.onclick = function(e) { // Handle clicks on boxes
-	a = Math.floor(e.layerX/(boxW+sp));
-	b = Math.floor(e.layerY/(boxH+sp));
+	a = Math.floor(e.offsetX/(boxW+sp));
+	b = Math.floor(e.offsetY/(boxH+sp));
 	zones[a][b].clicked();
 }
 
 c.oncontextmenu = function(e) { // Handle right-clicks on boxes
-	a = Math.floor(e.layerX/(boxW+sp));
-	b = Math.floor(e.layerY/(boxH+sp));
+	a = Math.floor(e.offsetX/(boxW+sp));
+	b = Math.floor(e.offsetY/(boxH+sp));
 	zones[a][b].flag();
 	return false;
 }
